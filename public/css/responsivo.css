@@ -1,0 +1,504 @@
+
+
+/*----- MÁXIMO 475 -----*/
+@media (max-width:475px) {
+    .menu-fechado{
+        margin-right: -35px;
+    }
+    .titulo-logo{
+        font-size: 14px;
+        margin-left: -15px;
+        margin-top: 47px;
+    }
+    .titulo-logo small{
+        font-size: 12px !important;
+    }
+    #logo-menu img {
+        left: -45px;
+        height: 110px;
+        top: 10px;
+    }
+    footer #nome-observatorio{
+        border-right: none;
+        font-size: 18px;
+    }
+    footer #nome-ifsul{
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+    .margin-footer-responsiva{
+        margin-top: 30px !important;
+    }
+    .margin-bottom-responsiva{
+        margin-bottom: 50px;
+    }
+    .pastor img{
+        width: 300px;
+        height: 300px;
+    }
+    .box-lista{
+        padding: 0px;
+    }
+    .box-evento{
+        height: auto;
+    }
+    .fc-left, .fc-right, .fc-center, .fc-clear{
+        display: none;
+    }
+    .box-lista-noticia .imagem-lista {
+        height: 415px;
+    }
+    .box-lista-noticia {
+        height: 570px;
+    }
+    .foto-view-noticia{
+        display: none !important;
+    }
+    .container-fluid {
+        min-width:300px !important; 
+        margin:0 auto !important; 
+        width:100% !important
+     }
+     .foto-view-pagina{
+        height: auto !important;
+    }
+    .responsive-reverse{
+    	display: none;
+    }
+    .marginB-resp{
+        margin-bottom: 20px;
+    }
+    .fc-scroller{
+        height: auto !important;
+    }
+    .rodape-resp{
+        font-size: 11px;
+    }
+    .midia-footer-resp{
+        width: 38px !important;
+    }
+    .margin-midiasT{
+        margin-right: 30px !important;
+    }
+}
+
+
+
+
+
+/*----- 476/575 -----*/
+@media (min-width: 476px) and (max-width: 575px) {
+    .menu-fechado{
+        margin-right: -35px;
+    }
+    .titulo-logo{
+        font-size: 17px;
+        margin-left: -15px;
+        margin-top: 47px;
+    }
+    .titulo-logo small{
+        font-size: 15px !important;
+    }
+    #logo-menu img {
+        left: -40px;
+    }
+    footer #nome-observatorio{
+        border-right: none;
+        font-size: 20px;
+    }
+    footer #nome-ifsul{
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+    .margin-footer-responsiva{
+        margin-top: 30px !important;
+    }
+    .margin-bottom-responsiva{
+        margin-bottom: 50px;
+    }
+    .box-lista{
+        padding: 0px;
+    }
+    .box-evento{
+        height: auto;
+    }
+    .fc-left, .fc-right, .fc-center, .fc-clear{
+        display: none;
+    }
+    .foto-view-noticia{
+        display: none !important;
+    }
+    .container-fluid {
+        margin:0 15px !important; 
+        width:98% !important;
+    }
+    .foto-view-pagina{
+        height: auto !important;
+    }
+    .responsive-reverse{
+    	display: none;
+    }
+    .marginB-resp{
+        margin-bottom: 20px;
+    }
+    .box-lista-noticia .imagem-lista {
+        height: 415px;
+    }
+    .box-lista-noticia {
+        height: 570px;
+    }
+    .fc-scroller{
+        height: auto !important;
+    }
+    .rodape-resp{
+        font-size: 12px;
+    }
+    .midia-footer-resp{
+        width: 38px !important;
+    }
+    .margin-midiasT{
+        margin-right: 35px !important;
+    }
+}
+
+
+
+
+
+/*----- 576/767 -----*/
+@media (min-width: 576px) and (max-width: 767px) {
+    .menu-fechado{
+        margin-right: -35px;
+    }
+    .titulo-logo{
+        font-size: 24px;
+        margin-left: -20px;
+        margin-top: 38px;
+    }
+    .titulo-logo small{
+        font-size: 18px !important;
+    }
+    #logo-menu img {
+        left: -20px;
+    }
+    footer #nome-observatorio{
+        border-right: none;
+        font-size: 24px;   
+    }
+    footer #nome-ifsul{
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+    .margin-footer-responsiva{
+        margin-top: 30px !important;
+    }
+    .margin-bottom-responsiva{
+        margin-bottom: 50px;
+    }
+    .box-lista{
+        padding: 0px;
+    }
+    .box-evento{
+        height: auto;
+    }
+    .container-fluid {
+        margin:0 auto !important; 
+        width:96% !important;
+    }
+    .foto-view-pagina{
+        height: auto !important;
+    }
+    .responsive-reverse{
+    	display: none;
+    }
+    .marginB-resp{
+        margin-bottom: 20px;
+    }
+    .box-lista-noticia .imagem-lista {
+        height: 570px;
+    }
+    .box-lista-noticia {
+        height: 750px;
+    }
+    .fc-scroller{
+        height: auto !important;
+    }
+    .rodape-resp{
+        font-size: 13px;
+    }
+    .midia-footer-resp{
+        width: 40px !important;
+    }
+    .margin-midiasT{
+        margin-right: 40px !important;
+    }
+}
+
+
+
+
+
+/*----- 768/991 -----*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .menu-fechado{
+        margin-right: -30px;
+    }
+    .titulo-logo{
+        margin-left: -5px;
+        font-size: 24px;
+        margin-top: 38px;
+    }
+    #logo-menu img {
+        left: 50px;
+    }
+    footer #nome-observatorio{
+        border-right: none;
+        font-size: 26px;   
+    }
+    footer #nome-ifsul{
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+    .margin-footer-responsiva{
+        margin-top: 30px !important;
+    }
+    .margin-bottom-responsiva{
+        margin-bottom: 50px;
+    }
+    .container-fluid {
+        margin:0 auto !important; 
+        width:94% !important;
+    }
+    .foto-view-pagina{
+        height: auto !important;
+    }
+    .responsive-reverse{
+    	display: none;
+    }
+    .box-lista-noticia .imagem-lista {
+        height: 660px;
+    }
+    .box-lista-noticia {
+        height: 840px;
+    }
+    .fc-scroller{
+        height: auto !important;
+    }
+    .rodape-resp{
+        font-size: 14px;
+    }
+    .midia-footer-resp{
+        width: 40px !important;
+    }
+    .margin-midiasT{
+        margin-right: 45px !important;
+    }
+}
+
+
+
+
+
+/*----- 992/1199 -----*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .titulo-logo{
+        margin-left: 15px;
+    }
+    .container-fluid {
+        margin:0 auto !important; 
+        width:92% !important;
+    }
+    .foto-view-pagina{
+        height: auto !important;
+    }
+    .responsive-reverse{
+    	display: none;
+    }
+    #nome-observatorio{
+        font-size: 28px !important;
+    }
+    .rodape-resp{
+        font-size: 14px;
+    }
+    .midia-footer-resp{
+        width: 42px !important;
+    }
+    .margin-midiasT{
+        margin-right: 50px !important;
+    }
+}
+
+
+
+
+
+/*----- 1200/1399 -----*/
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .menu-fechado{
+        display: none;
+    }
+    .titulo-logo{
+        font-size: 22px;
+        margin-left: -12px;
+        margin-top: 41px;
+    }
+    .titulo-logo small{
+        font-size: 17px !important;
+    }
+    #logo-menu img {
+        left: -20px;
+    }
+    .container-fluid {
+        margin:0 auto !important; 
+        width:90% !important;
+    }
+    .foto-view-pagina{
+        height: auto !important;
+    }
+    #nome-observatorio{
+        font-size: 30px !important;
+    }
+    .margin-midiasT{
+        margin-right: 35px !important;
+    }
+}
+
+
+
+
+
+
+/*----- 1400/1679 -----*/
+@media (min-width: 1400px) and (max-width: 1679px) {
+    .menu-fechado{
+        display: none;
+    }
+    .titulo-logo{
+        font-size: 22px;
+        margin-left: -12px;
+        margin-top: 41px;
+    }
+    .titulo-logo small{
+        font-size: 17px !important;
+    }
+    #logo-menu img {
+        left: -20px;
+    }
+    .container-fluid {
+        margin:0 auto !important; 
+        width:86% !important;
+    }
+    .foto-view-pagina{
+        height: auto !important;
+    }
+}
+
+
+
+
+
+/*----- 1680/1920 -----*/
+@media (min-width: 1680px) and (max-width: 1920px) {
+    .menu-fechado{
+        display: none;
+    }
+    .container-fluid {
+        margin:0 auto !important;
+        width:80% !important;
+    }
+
+}
+
+
+
+
+
+/*----- MAIS DE 1920 -----*/
+@media (min-width: 1921px) {
+    .menu-fechado{
+        display: none;
+    }
+    .container-fluid {
+        margin:0 auto !important; 
+        width:76% !important;
+        max-width: 2400px !important;
+    }
+}
+
+
+/* ----- MENU FECHADO ----- */
+@media (max-width: 1200px) {
+    .dynamika-menu-nav-forest {display:none}
+    .dynamika-menu-nav-forest {
+        position:fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        background-color: #044d2b;
+        width:230px !important;
+        z-index: 99;
+    }
+    .dynamika-menu-ul-forest {
+        min-width:230px !important;
+    }
+    .dynamika-menu-li-root {
+        width:230px !important;
+        line-height:auto !important;
+        margin-top:0 !important;
+        border-top:1px solid rgb(255, 255, 255) !important;
+    }
+    .dynamika-menu-li-root:hover {
+        border-top:0 !important;
+    }
+    .dynamika-menu-a-root {
+        line-height:20px !important;
+        padding:10px 30px !important;
+        width:100% !important;
+        color:#FFF !important;
+        overflow: auto !important;
+        font-size:12px !important;
+        text-align: left !important;
+    }
+    .dynamika-menu-span-items {
+        background-color:#198754 !important;
+        margin:0;
+        padding:0;
+        width:230px;
+        border-radius:0;
+        overflow-y:scroll !important;
+    }
+    .dynamika-menu-span-sub h3 {
+        font-size:.9em;
+        padding:10px 0;
+    }
+    .dynamika-menu-span-sub {
+        margin:0;
+        padding:5px 0;
+    }
+    .dynamika-menu-a-link {
+        border:0;
+        color: #ffffff !important;
+        font-size:10px !important;
+        line-height:12px !important;
+        padding:8px 0;
+        margin-left:-15px;
+    }
+    .menu-fechado {
+        border:1px solid rgb(220,220,220);
+        padding:10px 15px;
+        border-radius:6px;
+        position: absolute;
+        top:40px;
+        right:0;
+        cursor:pointer;
+        color:#044d2b !important;
+        font-weight:900;
+        font-family:'Gotham',sans-serif;
+        text-transform: uppercase;
+        width:110px;
+        text-align: center;
+    }
+    .menu-fechado svg {
+        color:#044d2b !important;
+    }
+}

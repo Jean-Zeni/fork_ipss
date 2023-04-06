@@ -1,0 +1,13 @@
+.border-indigo-400 {
+    border-color: #198754 !important;
+}
+
+a {
+    color: 	#000000 !important;
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: 	#198754 !important;
+    text-decoration: none;
+}
