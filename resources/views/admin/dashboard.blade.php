@@ -1,3 +1,5 @@
+@section('titulo', 'Igreja Presbiteriana de Sapucaia do Sul | Administrativo')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

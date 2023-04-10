@@ -15,6 +15,7 @@
 
             gtag('config', 'G-KXY74ZQNPT');
         </script>
+          @stack('styles') 
         <link rel="stylesheet" href="{{ asset('site/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
         <link rel="stylesheet" href="{{ asset('css/responsivo.css') }}">
@@ -32,6 +33,7 @@
         <a href="https://web.whatsapp.com/send?phone=555182153223&text=Olá" id="whatsapp" target="_blank">
             <img src="{{url('/')}}/images/whatsapp-flutuante.png" alt="Whatsapp" width="100%">
         </a>
+        @stack('scripts')
     </body>
 </html>
 <script src="{{ asset('site/jquery.js') }}"></script>

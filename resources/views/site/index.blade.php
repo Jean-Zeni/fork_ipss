@@ -6,12 +6,9 @@
     <div class="site-index">
         <div class="body-content">
             <section>
-                
-                <div class="banner-capa">
-                                <div class="banner-background">
-                                    <img src="{{Request::url()}}/images/Igreja presbiteriana de sapucaia do sul.png" alt="Banner" width="100%" class="banner-capa">
-                                </div>
-                            </div>
+                @if($banners)
+                    @include('site._components.carousel',['banners'=>$banners])
+                @endif
             </section>
             <br><br>
             <section class="margin-section">

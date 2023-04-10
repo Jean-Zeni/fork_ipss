@@ -5,21 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" type="image/png" href="{{url('/')}}/favicon.ico">
-        <title>{{ config('app.name', 'Laravel') }} | Administrativo</title>
+        <title>@yield('titulo')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('site/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-
+        <script src = "https://cdn.jsdelivr.net/npm/ flatpickr" > </script> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('style')
     
         <!-- Styles -->
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
+    @include('sweetalert::alert')
+
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -43,5 +47,10 @@
         @stack('modals')
 
         @livewireScripts
+        @stack('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script>
+            flatpickr("input[type=datetime-local]");
+        </script>
     </body>
 </html>
