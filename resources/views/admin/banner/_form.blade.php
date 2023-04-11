@@ -8,10 +8,12 @@
 @endif
     <div class="row">
         <div class="col-10">
+            <label>Título:</label>
             <input type="text" name="titulo" value="{{ $banner->titulo ?? old('titulo') }}" placeholder="Título" style="width: 100%;">
             {{ $errors->has('titulo') ? $errors->first('titulo') : '' }}
         </div>
         <div class="col-2">
+            <label>Posição:</label>
             <select name="tipo_posicao" style="width: 100%;">
                     <option> Tipo Posição </option>
                     <option value="cap" @if(isset($banner)){{ ($banner->tipo_posicao ?? old('tipo_posicao')) == $banner->tipo_posicao ? 'selected' : '' }}@endif> Capa </option>
@@ -22,10 +24,12 @@
     <br>
     <div class="row">
         <div class="col-6">
+            <label>Data inicio:</label>
             <input type="datetime-local" class="form-control" name="data_inicio" value="{{ $banner->data_inicio ?? old('data_inicio') }}"  placeholder="Data ínicio">
             {{ $errors->has('data_inicio') ? $errors->first('data_inicio') : '' }}
         </div>
         <div class="col-6">
+            <label>Data fim:</label>
             <input type="datetime-local" class="form-control" name="data_fim" value="{{ $banner->data_fim ?? old('data_fim') }}"  placeholder="Data Fim">
             {{ $errors->has('data_fim') ? $errors->first('data_fim') : '' }}
         </div>
@@ -33,6 +37,7 @@
     <br>
     <div class="row">
         <div class="col-12">
+            <label>Link:</label>
             <input type="text" name="link" value="{{ $banner->link ?? old('link') }}" placeholder="Link" style="width: 100%;">
             {{ $errors->has('link') ? $errors->first('link') : '' }}
         </div>
@@ -40,6 +45,7 @@
     <br>
     <div class="row">
         <div class="col-4">
+            <label>Tipo documento:</label>
             <select name="tipo_documento">
                     <option> Tipo Documento </option>
                     <option value="VI" @if(isset($banner)){{ ($banner->tipo_documento ?? old('tipo_documento')) == $banner->tipo_documento ? 'selected' : '' }}@endif> Vídeo </option>
@@ -76,6 +82,7 @@
             <label for="nova_guia">Nova Guia</label>
         </div>
         <div class="col-2">
+            <label>Ordem:</label>
             <input type="number" id="ordem" name="ordem" value="{{ $banner->ordem ?? old('ordem') }}" placeholder="Ordem">
         </div>
     </div>

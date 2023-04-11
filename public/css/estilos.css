@@ -935,7 +935,7 @@ h3 {
   position: relative;
 }
 
-.dynamika-menu-nav-forest {
+.menu-nav {
   font-family:'Montserrat',sans-serif !important;
   position: absolute;
   align-content: space-between !important;
@@ -944,7 +944,7 @@ h3 {
   right:0;
 }
 
-.dynamika-menu-ul-forest {
+.menu-ul {
   position:inherit !important;
   width: 100%;
   align-content: space-between !important;
@@ -957,7 +957,7 @@ h3 {
     justify-content: space-between;
 }
 
-.dynamika-menu-li-root {
+.menu-li-root {
     z-index: 1 !important;
     max-width: 100%;
     justify-content: center !important;
@@ -969,11 +969,11 @@ h3 {
     cursor: pointer;
 }
 
-.dynamika-menu-li-root:hover .dynamika-menu-span-items {
+.menu-li-root:hover .menu-span-items {
     visibility: visible;
 }
 
-.dynamika-menu-a-root {
+.menu-a-root {
 	  font-weight: 900 !important;
     font-size: 14px !important;
     text-transform: uppercase;
@@ -985,11 +985,11 @@ h3 {
     font-family: 'Montserrat',sans-serif !important;
 }
 
-.dynamika-menu-a-root:hover {
+.menu-a-root:hover {
   color:#198754 !important;
 }
 
-.dynamika-menu-span-items {
+.menu-span-items {
 	background-color: #044d2b !important;
   padding:20px !important;
   border-radius:12px;
@@ -1004,16 +1004,16 @@ h3 {
     z-index: 1;
 }
 
-.dynamika-menu-li-root:hover .dynamika-menu-span-items {
+.menu-li-root:hover .menu-span-items {
   margin-top:0;
 }
 
-.dynamika-menu-span-items p {
+.menu-span-items p {
   color:rgb(255,255,255) !important;
   padding:10px 0 0 0 !important;
 }
 
-.dynamika-menu-span-sub {
+.menu-span-sub {
 	padding:0 !important;
 	text-align:left !important;
     display: flex;
@@ -1022,13 +1022,13 @@ h3 {
     flex-direction: column;
 }
 
-.dynamika-menu-span-sub ul {
+.menu-span-sub ul {
   list-style: none !important;
   margin:0 !important;
   padding:0px 15px!important;
 }
 
-.dynamika-menu-span-sub h3 {
+.menu-span-sub h3 {
   font-size:1em;
   font-family:'Montserrat';
   font-weight:bold;
@@ -1037,13 +1037,13 @@ h3 {
   color:#FFF;
 }
 
-.dynamika-menu-li-link {
+.menu-li-link {
   list-style: none;
   margin:0;
   padding:0;
 }
 
-.dynamika-menu-a-link {
+.menu-a-link {
 	display: block;
 	padding:7px 0;
   color:rgba(255,255,255,.5) !important;
@@ -1054,11 +1054,11 @@ h3 {
   border-bottom:1px solid rgba(255,255,255,.2);
 }
 
-.dynamika-menu-a-link:hover {
+.menu-a-link:hover {
   color:#FFF;
 }
 
-.dynamika-menu-span-sub p {
+.menu-span-sub p {
   color:rgba(255,255,255,.5) !important;
 }
 

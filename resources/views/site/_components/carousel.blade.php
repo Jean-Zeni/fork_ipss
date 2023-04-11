@@ -1,7 +1,7 @@
 @push('styles')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 @endpush
-<div class="swiper mySwiper">
+<div class="swiper mySwiper" style="z-index: -1 !important;">
     <div class="swiper-wrapper">
         @foreach ($banners as $banner)
             <div class="swiper-slide">

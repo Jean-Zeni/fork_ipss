@@ -428,8 +428,8 @@
 
 /* ----- MENU FECHADO ----- */
 @media (max-width: 1200px) {
-    .dynamika-menu-nav-forest {display:none}
-    .dynamika-menu-nav-forest {
+    .menu-nav {display:none}
+    .menu-nav {
         position:fixed;
         top:0;
         left:0;
@@ -438,19 +438,19 @@
         width:230px !important;
         z-index: 99;
     }
-    .dynamika-menu-ul-forest {
+    .menu-ul {
         min-width:230px !important;
     }
-    .dynamika-menu-li-root {
+    .menu-li-root {
         width:230px !important;
         line-height:auto !important;
         margin-top:0 !important;
         border-top:1px solid rgb(255, 255, 255) !important;
     }
-    .dynamika-menu-li-root:hover {
+    .menu-li-root:hover {
         border-top:0 !important;
     }
-    .dynamika-menu-a-root {
+    .menu-a-root {
         line-height:20px !important;
         padding:10px 30px !important;
         width:100% !important;
@@ -459,7 +459,7 @@
         font-size:12px !important;
         text-align: left !important;
     }
-    .dynamika-menu-span-items {
+    .menu-span-items {
         background-color:#198754 !important;
         margin:0;
         padding:0;
@@ -467,15 +467,15 @@
         border-radius:0;
         overflow-y:scroll !important;
     }
-    .dynamika-menu-span-sub h3 {
+    .menu-span-sub h3 {
         font-size:.9em;
         padding:10px 0;
     }
-    .dynamika-menu-span-sub {
+    .menu-span-sub {
         margin:0;
         padding:5px 0;
     }
-    .dynamika-menu-a-link {
+    .menu-a-link {
         border:0;
         color: #ffffff !important;
         font-size:10px !important;

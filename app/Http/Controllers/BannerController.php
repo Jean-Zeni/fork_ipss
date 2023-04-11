@@ -94,34 +94,34 @@ class BannerController extends Controller
             // Verifica se informou o arquivo e se é válido
             if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
             
-                    // Define um aleatório para o arquivo baseado no timestamps atual
-                    $name = uniqid(date('HisYmd'));
-            
-                    // Recupera a extensão do arquivo
-                    $extension = $request->arquivo->extension();
-            
-                    // Define finalmente o nome
-                    $nameFile = "{$name}.{$extension}";
+                // Define um aleatório para o arquivo baseado no timestamps atual
+                $name = uniqid(date('HisYmd'));
+        
+                // Recupera a extensão do arquivo
+                $extension = $request->arquivo->extension();
+        
+                // Define finalmente o nome
+                $nameFile = "{$name}.{$extension}";
 
-                    $arquivo->arquivo = $nameFile;
-                    $arquivo->tamanho = $request->arquivo->getSize();
-                    $arquivo->tipo_mime = $request->arquivo->getMimeType();
-                    $arquivo->nome_original = $request->arquivo->getClientOriginalName();
-                    $arquivo->posicao = 1;
-                    $arquivo->tipo = 'I';
-                    $arquivo->banner_id = $banner->id;
-                    $arquivo->save();
-                    
-                    $uploadPath = "uploads/".$table."/".$arquivo->id;
-                    // Faz o upload:
-                    $upload = $request->arquivo->storeAs($uploadPath, $nameFile);
-                    // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-            
-                    // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                    if ( !$upload ){
-                        return redirect()->back();
-                        alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                    }
+                $arquivo->arquivo = $nameFile;
+                $arquivo->tamanho = $request->arquivo->getSize();
+                $arquivo->tipo_mime = $request->arquivo->getMimeType();
+                $arquivo->nome_original = $request->arquivo->getClientOriginalName();
+                $arquivo->posicao = 1;
+                $arquivo->tipo = 'I';
+                $arquivo->banner_id = $banner->id;
+                $arquivo->save();
+                
+                $uploadPath = "uploads/".$table."/".$arquivo->id;
+                // Faz o upload:
+                $upload = $request->arquivo->storeAs($uploadPath, $nameFile);
+                // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
+        
+                // Verifica se NÃO deu certo o upload (Redireciona de volta)
+                if ( !$upload ){
+                    return redirect()->back();
+                    alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
+                }
             }
 
         }

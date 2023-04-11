@@ -31,6 +31,9 @@ Route::middleware([
     //banners
     Route::resource('banner', \App\Http\Controllers\BannerController::class);
 
+    //videos
+    Route::resource('video', \App\Http\Controllers\VideoController::class);
+
     //arquivos
     Route::resource('arquivo', \App\Http\Controllers\ArquivoController::class);
 

@@ -27,18 +27,19 @@
                         </div>
                     <br />
                     </div>
-                    
-                    <div class="col-12 col-md-12 col-lg-6 margin-top-responsiva margin-bottom-responsiva">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2 class="titulo">Vídeo em destaque<span class="square"></span></h2>
-                            </div>
-                            <div class="col-12 text-center">
-                                <iframe width="100%" height="500" src="https://www.youtube.com/embed/Ue8YIdSxEUY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="video-capa" allowfullscreen></iframe>    
-                                <br />
-                            </div>
-                        </div>   
-                    </div>
+                    @if($video)
+                        <div class="col-12 col-md-12 col-lg-6 margin-top-responsiva margin-bottom-responsiva">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="titulo">Vídeo em destaque<span class="square"></span></h2>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <iframe width="100%" height="500" src="{{$video->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="video-capa" allowfullscreen></iframe>    
+                                    <br />
+                                </div>
+                            </div>   
+                        </div>
+                    @endif
                 </div>   
             </section>
             <br /><br />
