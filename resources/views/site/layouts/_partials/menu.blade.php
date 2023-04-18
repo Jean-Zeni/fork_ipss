@@ -37,7 +37,7 @@
             <a class="menu-a-root" href="#"> Multimídia </a>
         </li>
         <li class="menu-li-root">
-            <a class="menu-a-root" href="#"> Contato </a>
+            <a class="menu-a-root" href="/contato"> Contato </a>
         </li>
         <li class="menu-li-root">
             <a class="menu-a-root" href="#"> Lideranças </a>

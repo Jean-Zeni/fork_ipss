@@ -15,3 +15,11 @@ a {
 .margin40T{
   margin-top: 40px;
 }
+
+.label-danger {
+  background-color: #d9534f;
+}
+
+.label-success {
+  background-color: #5cb85c;
+}

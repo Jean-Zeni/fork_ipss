@@ -21,6 +21,9 @@
                     <x-nav-link href="{{ route('video.index') }}" :active="request()->routeIs('admin.video')">
                         {{ __('Videos') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('contato.index') }}" :active="request()->routeIs('admin.contato')">
+                        {{ __('Contatos') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -7,7 +7,7 @@
         <div class="body-content">
             <section>
                 @if($banners)
-                    @include('site._components.carousel',['banners'=>$banners])
+                    @include('site.principal._components.carousel',['banners'=>$banners])
                 @endif
             </section>
             <br><br>
