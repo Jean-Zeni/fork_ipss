@@ -23,6 +23,8 @@ Route::get('/contato', [\App\Http\Controllers\SiteContatoController::class, 'ind
 
 Route::post('/contato/save-contato', [\App\Http\Controllers\SiteContatoController::class, 'SaveContato'])->name('site.save-contato');
 
+Route::get('/video', [\App\Http\Controllers\SiteVideoController::class, 'index'])->name('site.video');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

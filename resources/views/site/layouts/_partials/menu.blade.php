@@ -35,6 +35,19 @@
         </li>
         <li class="menu-li-root">
             <a class="menu-a-root" href="#"> Multimídia </a>
+            <span class="menu-span-items">
+                <span class="menu-span-sub">
+                    <a href="#"><h3>Galeria</h3></a>
+                    <ul>
+                        <li class="menu-li-link">
+                            <a class="menu-a-link" href="" title="Galeria de Imagens"> Galeria de Imagens </a>
+                        </li>
+                        <li class="menu-li-link">
+                            <a class="menu-a-link" href="/video" title="Galeria de Vídeos"> Galeria de Vídeos </a>
+                        </li>
+                    </ul>
+                </span>
+            </span>
         </li>
         <li class="menu-li-root">
             <a class="menu-a-root" href="/contato"> Contato </a>
