@@ -24,6 +24,9 @@
                     <x-nav-link href="{{ route('contato.index') }}" :active="request()->routeIs('admin.contato')">
                         {{ __('Contatos') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('membro.index') }}" :active="request()->routeIs('admin.membro')">
+                        {{ __('Membros') }}
+                    </x-nav-link>
                 </div>
             </div>
 

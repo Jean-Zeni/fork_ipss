@@ -40,8 +40,11 @@ Route::middleware([
     //videos
     Route::resource('video', \App\Http\Controllers\VideoController::class);
 
-    //videos
+    //contato
     Route::resource('contato', \App\Http\Controllers\ContatoController::class);
+
+    //membros
+    Route::resource('membro', \App\Http\Controllers\MembroController::class);
 
     //arquivos
     Route::resource('arquivo', \App\Http\Controllers\ArquivoController::class);

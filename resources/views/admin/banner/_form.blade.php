@@ -84,6 +84,7 @@
         <div class="col-2">
             <label>Ordem:</label>
             <input type="number" id="ordem" name="ordem" value="{{ $banner->ordem ?? old('ordem') }}" placeholder="Ordem">
+            {{ $errors->has('ordem') ? $errors->first('ordem') : '' }}
         </div>
     </div>
     <br>
