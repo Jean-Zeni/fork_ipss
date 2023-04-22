@@ -14,7 +14,7 @@
         <br><br>
         <div class="informacao-pagina">
             <div>
-                @component('admin.membro._form', ['membro' => $membro])
+                @component('admin.membro._form', ['membro' => $membro, 'conselhos' => $conselhos])
                 @endcomponent
             </div>
         </div>

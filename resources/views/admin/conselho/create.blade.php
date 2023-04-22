@@ -1,19 +1,19 @@
-@section('titulo', 'Adicionar Membro')
+@section('titulo', 'Adicionar Conselho')
 <x-app-layout>
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Criar Membro') }}
+            {{ __('Criar Conselho') }}
         </h2>
     </x-slot>
     <div class="container margin40T">
         <div class="menu">
-            <a href="{{ route('membro.index') }}" class="btn btn-success">Listar</a>
+            <a href="{{ route('conselho.index') }}" class="btn btn-success">Listar</a>
         </div>
         <br><br>
         <div class="informacao-pagina">
             <div>
-                @component('admin.membro._form', ['conselhos' => $conselhos])
+                @component('admin.conselho._form')
                 @endcomponent
             </div>
         </div>

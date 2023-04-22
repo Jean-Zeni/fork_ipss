@@ -25,6 +25,8 @@ Route::post('/contato/save-contato', [\App\Http\Controllers\SiteContatoControlle
 
 Route::get('/video', [\App\Http\Controllers\SiteVideoController::class, 'index'])->name('site.video');
 
+Route::get('/conselho/view/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -45,6 +47,9 @@ Route::middleware([
 
     //membros
     Route::resource('membro', \App\Http\Controllers\MembroController::class);
+
+    //conselhos
+    Route::resource('conselho', \App\Http\Controllers\ConselhoController::class);
 
     //arquivos
     Route::resource('arquivo', \App\Http\Controllers\ArquivoController::class);

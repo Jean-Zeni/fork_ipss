@@ -532,6 +532,7 @@ a.desc:after {
   border-radius: 20px;
   text-transform: uppercase;
   transition: all .2s ease;
+  display: inline-flex;
 }
 
 .btn-padrao:hover {

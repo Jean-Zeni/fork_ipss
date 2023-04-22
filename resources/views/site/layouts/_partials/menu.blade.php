@@ -54,6 +54,15 @@
         </li>
         <li class="menu-li-root">
             <a class="menu-a-root" href="#"> Lideranças </a>
+            <span class="menu-span-items">
+                <span class="menu-span-sub">
+                    <ul>
+                        <li class="menu-li-link">
+                            <a class="menu-a-link" href="/conselho/view/4" title="Conselho"> Conselho </a>
+                        </li>
+                    </ul>
+                </span>
+            </span>
         </li>
         <li class="menu-li-root">
             <a class="menu-a-root" href="#"> Agenda </a>

@@ -22,6 +22,10 @@
                         <td>{{ $membro->id }}</td>
                     </tr>
                     <tr>
+                        <td>Conselho:</td>
+                        <td>@if ($membro->conselho){{ $membro->conselho->nome }}@endif</td>
+                    </tr>
+                    <tr>
                         <td>Nome:</td>
                         <td>{{ $membro->nome }}</td>
                     </tr>

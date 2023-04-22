@@ -37,6 +37,21 @@
     <br>
     <div class="row">
         <div class="col-12">
+            @if ($conselhos)            
+                <select name="conselho_id">
+                    <option> Selecione um Conselho ao qual o membro faz parte </option>
+            
+                        @foreach ($conselhos as $conselho)
+                            <option value="{{$conselho->id}}" {{ ($membro->conselho_id ?? old('conselho_id')) == $conselho->id ? 'selected' : '' }}>{{$conselho->nome}}</option>
+                        @endforeach
+                </select>
+                {{ $errors->has('conselho_id') ? $errors->first('conselho_id') : '' }}
+            @endif
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
             <label>Resumo:</label>
             <textarea name="resumo" placeholder="Resumo" style="width: 100%;" rows="4" cols="50">{{ $membro->resumo ?? old('resumo') }}</textarea>
             {{ $errors->has('resumo') ? $errors->first('resumo') : '' }}
