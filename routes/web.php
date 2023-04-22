@@ -21,7 +21,11 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'site'])->name('si
 
 Route::get('/contato', [\App\Http\Controllers\SiteContatoController::class, 'index'])->name('site.contato');
 
+Route::get('/contato-evangelismo', [\App\Http\Controllers\SiteContatoController::class, 'evangelismo'])->name('site.contato.evangelismo');
+
 Route::post('/contato/save-contato', [\App\Http\Controllers\SiteContatoController::class, 'SaveContato'])->name('site.save-contato');
+
+Route::post('/contato/save-contato-evangelismo', [\App\Http\Controllers\SiteContatoController::class, 'SaveContatoEvangelismo'])->name('site.save-contato-evangelismo');
 
 Route::get('/video', [\App\Http\Controllers\SiteVideoController::class, 'index'])->name('site.video');
 

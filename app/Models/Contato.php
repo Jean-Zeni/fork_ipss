@@ -23,6 +23,28 @@ class Contato extends Model
         self::TIPO_CONTATO_EVANGELISMO => 'Duvida contato'
     ];
 
+    public static function rules(){
+        $regras = [
+            'nome' => 'required|max:150',
+            'email' => 'required|email',
+            'telefone' => 'required|max:15',
+            'mensagem' => 'required',
+        ];
+
+        return $regras;
+    }
+
+    public static function feedback(){
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'nome.max' => 'O campo :attribute não pode ultrapassar 150 caracteres.',
+            'telefone.max' => 'O campo :attribute não pode ultrapassar 15 caracteres.',
+            'email.email' => 'Digite um email válido.'
+        ];
+
+        return $feedback;
+    }
+
     public function getStatusLabel($withTag = true)
     {
         $status = (isset(self::$statusList[$this->status]))
