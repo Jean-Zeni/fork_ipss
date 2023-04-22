@@ -3,24 +3,36 @@
         <div class="col-12">
             <div class="text-right margin-midiasT">
                 <br><br>
-                    <a href="" target="_blank" class="midia-footer">
+                @if ($config->facebook)             
+                    <a href="{{$config->facebook}}" target="_blank" class="midia-footer">
                         <img src="{{url('/')}}/images/facebook.png" alt="Facebook" width="24" class="midia-topo">
                     </a>
-                    <a href="" target="blank" class="midia-footer">
+                @endif
+                @if ($config->instagram)    
+                    <a href="{{$config->instagram}}" target="blank" class="midia-footer">
                         <img src="{{url('/')}}/images/instagram.png" alt="Instagram" width="24" class="midia-topo">
                     </a>
-                    <a href="" target="_blank" class="midia-footer">
+                @endif
+                @if ($config->youtube)    
+                    <a href="{{$config->youtube}}" target="_blank" class="midia-footer">
                         <img src="{{url('/')}}/images/youtube.png" alt="Youtube" width="24" class="midia-topo">
                     </a>
-                    <a href="" target="_blank" class="midia-footer">
+                @endif
+                @if ($config->twitter)     
+                    <a href="{{$config->twitter}}" target="_blank" class="midia-footer">
                         <img src="{{url('/')}}/images/twitter.png" alt="Twitter" width="24" class="midia-topo">
                     </a>
-                    <a href="" target="_blank" class="midia-footer">
+                @endif
+                @if ($config->spotify)    
+                    <a href="{{$config->spotify}}" target="_blank" class="midia-footer">
                         <img src="{{url('/')}}/images/spotify.png" alt="Spotify" width="24" class="midia-topo">
                     </a>
-                    <a href="" target="_blank" class="midia-footer">
+                @endif
+                @if ($config->whatsapp)        
+                    <a href="{{$config->whatsapp}}" target="_blank" class="midia-footer">
                         <img src="{{url('/')}}/images/whatsapp.png" alt="Whatsapp" width="24" class="midia-topo">
                     </a>
+                @endif
             </div>
         </div>
     </div>

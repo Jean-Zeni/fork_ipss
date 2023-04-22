@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td>Descrição:</td>
-                        <td>{{html_entity_decode($video->descricao)}}</td>
+                        <td><?=$video->descricao?></td>
                     </tr>
                     <tr>
                         <td>Youtube:</td>

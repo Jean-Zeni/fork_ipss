@@ -30,6 +30,9 @@
                     <x-nav-link href="{{ route('conselho.index') }}" :active="request()->routeIs('admin.conselho')">
                         {{ __('Conselho') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.configuracao.edit', ['configuracao' => 1]) }}" :active="request()->routeIs('admin.configuracao.edit')">
+                        {{ __('Configurações') }}
+                    </x-nav-link>
                 </div>
             </div>
 

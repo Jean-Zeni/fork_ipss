@@ -1,3 +1,9 @@
+<?php
+use App\Models\Configuracao;
+
+$config = Configuracao::getConfig();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -23,13 +29,13 @@
     </head>
 
     <body class="d-flex flex-column h-100">
-        @include('site.layouts._partials.header')
+        @include('site.layouts._partials.header', ['config' => $config])
 
         <main role="main" class="flex-shrink-0">
             @yield('conteudo')
         </main>
     
-        @include('site.layouts._partials.footer')
+        @include('site.layouts._partials.footer', ['config' => $config])
 
         <a href="https://web.whatsapp.com/send?phone=555182153223&text=Olá" id="whatsapp" target="_blank">
             <img src="{{url('/')}}/images/whatsapp-flutuante.png" alt="Whatsapp" width="100%">

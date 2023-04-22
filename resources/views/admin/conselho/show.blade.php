@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td>Descrição:</td>
-                        <td>{{ $conselho->descricao }}</td>
+                        <td><?=$conselho->descricao?></td>
                     </tr>
                     <tr>
                         <td>Ativo:</td>

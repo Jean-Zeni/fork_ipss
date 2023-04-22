@@ -6,31 +6,41 @@
             <div id="nome-ifsul">de Sapucaia do Sul</div>
         </div>
         <div class="col-12 col-md-12 col-lg-6 text-center margin-footer-responsiva"  style="margin-top: 45px;">
-            <p>R. São Luiz, 188 - Centro, Sapucaia do Sul - RS, 93220-400<br>
-                Telefone: (51) 8215-3223<br>
-                Email: ipss@ipsapucaiadosul.com.br</p>
+            <?=$config->rodape?>
             <div class="row">
                 <div class="col-12">
                     <div class="text-center">
                         <br>
-                        <a href="" target="_blank" class="midia-footer">
-                            <img src="{{url('/')}}/images/facebook.png" alt="Facebook" width="44" class="efeito-midia midia-footer-resp">
-                        </a>
-                        <a href="" target="_blank" class="midia-footer">
-                            <img src="{{url('/')}}/images/instagram.png" alt="Instagram" width="44" class="efeito-midia midia-footer-resp">
-                        </a>
-                        <a href="" target="_blank" class="midia-footer">
-                            <img src="{{url('/')}}/images/youtube.png" alt="Youtube" width="44" class="efeito-midia midia-footer-resp">
-                        </a>
-                        <a href="" target="_blank" class="midia-footer">
-                            <img src="{{url('/')}}/images/twitter.png" alt="Twiiter" width="44" class="efeito-midia midia-footer-resp">
-                        </a>
-                        <a href="" target="_blank" class="midia-footer">
-                            <img src="{{url('/')}}/images/spotify.png" alt="Spotify" width="44" class="efeito-midia midia-footer-resp">
-                        </a>
-                        <a href="" target="_blank" class="midia-footer">
-                            <img src="{{url('/')}}/images/whatsapp.png" alt="Whatsapp" width="44" class="efeito-midia midia-footer-resp">
-                        </a>
+                        @if ($config->facebook)    
+                            <a href="{{$config->facebook}}" target="_blank" class="midia-footer">
+                                <img src="{{url('/')}}/images/facebook.png" alt="Facebook" width="44" class="efeito-midia midia-footer-resp">
+                            </a>
+                        @endif
+                        @if ($config->instagram)      
+                            <a href="{{$config->facebook}}" target="_blank" class="midia-footer">
+                                <img src="{{url('/')}}/images/instagram.png" alt="Instagram" width="44" class="efeito-midia midia-footer-resp">
+                            </a>
+                        @endif
+                        @if ($config->youtube)    
+                            <a href="{{$config->youtube}}" target="_blank" class="midia-footer">
+                                <img src="{{url('/')}}/images/youtube.png" alt="Youtube" width="44" class="efeito-midia midia-footer-resp">
+                            </a>
+                        @endif
+                        @if ($config->twiiter)      
+                            <a href="{{$config->twitter}}" target="_blank" class="midia-footer">
+                                <img src="{{url('/')}}/images/twitter.png" alt="Twiiter" width="44" class="efeito-midia midia-footer-resp">
+                            </a>
+                        @endif
+                        @if ($config->spotify)    
+                            <a href="{{$config->spotify}}" target="_blank" class="midia-footer">
+                                <img src="{{url('/')}}/images/spotify.png" alt="Spotify" width="44" class="efeito-midia midia-footer-resp">
+                            </a>
+                        @endif
+                        @if ($config->whatsapp)     
+                            <a href="{{$config->whatsapp}}" target="_blank" class="midia-footer">
+                                <img src="{{url('/')}}/images/whatsapp.png" alt="Whatsapp" width="44" class="efeito-midia midia-footer-resp">
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -54,6 +54,11 @@ Route::middleware([
     //arquivos
     Route::resource('arquivo', \App\Http\Controllers\ArquivoController::class);
 
+    //configuração
+    Route::get('/configuracao/edit/{configuracao}', [\App\Http\Controllers\ConfiguracaoController::class, 'edit'])->name('admin.configuracao.edit');
+    //configuração
+    Route::put('/configuracao/edit/{configuracao}', [\App\Http\Controllers\ConfiguracaoController::class, 'update'])->name('admin.configuracao.update');
+
     Route::delete('/arquivo/excluir/{id}/{tabela}', [\App\Http\Controllers\ArquivoController::class, 'excluir'])->name('admin.arquivo.excluir');
 
 });
