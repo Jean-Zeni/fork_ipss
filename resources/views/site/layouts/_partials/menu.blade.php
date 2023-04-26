@@ -65,7 +65,7 @@
             </span>
         </li>
         <li class="menu-li-root">
-            <a class="menu-a-root" href="#"> Agenda </a>
+            <a class="menu-a-root" href="/agenda"> Agenda </a>
         </li>
     </ul>
 </section>

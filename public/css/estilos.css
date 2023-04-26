@@ -561,15 +561,20 @@ a.desc:after {
   --bs-alert-border-color: #ccc;
 }
 
-.btn-group button {
-  background-color: 	#044d2b;
-  color: #fff;
+.fc .fc-button-primary {
+  background-color: 	#044d2b !important;
+  color: #fff !important;
   margin: 0 4px;
 }
 
-.btn-group :hover {
-  color: #000000;
-  background-color: #198754;
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active{
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(24, 39, 10) !important;
+}
+
+.fc .fc-button-primary :hover {
+  color: #000000 !important;
+  background-color: #198754 !important;
 }
 
 .fc-center h2 {
