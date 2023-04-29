@@ -14,10 +14,41 @@ Breadcrumbs::for('contato', function (BreadcrumbTrail $trail) {
 });
 
 //Home > Fale conosco
+Breadcrumbs::for('agenda', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Agenda', route('site.agenda'));
+});
+
+//Home > Video
+Breadcrumbs::for('video', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Galeria de Vídeos', route('site.video'));
+});
+
+// Home > Video > [Video]
+Breadcrumbs::for('videoView', function (BreadcrumbTrail $trail, $video) {
+    $trail->parent('video');
+    $trail->push($video->titulo, route('site.video.view', $video));
+});
+
+//Home > Conselho view
 Breadcrumbs::for('conselho', function (BreadcrumbTrail $trail) {
     $trail->parent('site');
     $trail->push('Conselho', route('site.conselho.view', ['id' => 1]));
 });
+
+//Home > Galeria de Fotos
+Breadcrumbs::for('foto', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Galeria de Fotos', route('site.foto'));
+});
+
+// Home > Foto > [Foto]
+Breadcrumbs::for('fotoView', function (BreadcrumbTrail $trail, $foto) {
+    $trail->parent('foto');
+    $trail->push($foto->titulo, route('site.foto.view', $foto));
+});
+
 
 Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
     $trail->parent('site');

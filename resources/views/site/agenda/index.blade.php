@@ -44,7 +44,7 @@
 </script>
 @endpush
 @section('conteudo')
-{{ Breadcrumbs::render('contato') }}
+{{ Breadcrumbs::render('agenda') }}
     <section class="container-fluid">
         <div class="row">
             <div></div>

@@ -3,7 +3,7 @@
 @section('titulo', 'Galeria de Vídeos')
 
 @section('conteudo')
-{{ Breadcrumbs::render('contato') }}
+{{ Breadcrumbs::render('video') }}
     <section>
         <div class="container-fluid">
             <div class="row">

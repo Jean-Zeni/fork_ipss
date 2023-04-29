@@ -29,6 +29,12 @@ Route::post('/contato/save-contato-evangelismo', [\App\Http\Controllers\SiteCont
 
 Route::get('/video', [\App\Http\Controllers\SiteVideoController::class, 'index'])->name('site.video');
 
+Route::get('/video/view/{id}', [\App\Http\Controllers\SiteVideoController::class, 'view'])->name('site.video.view');
+
+Route::get('/foto', [\App\Http\Controllers\SiteFotoController::class, 'index'])->name('site.foto');
+
+Route::get('/foto/view/{id}', [\App\Http\Controllers\SiteFotoController::class, 'view'])->name('site.foto.view');
+
 Route::get('/agenda', [\App\Http\Controllers\SiteEventoController::class, 'index'])->name('site.agenda');
 
 Route::get('/conselho/view/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
@@ -62,6 +68,9 @@ Route::middleware([
 
     //eventos
     Route::resource('evento', \App\Http\Controllers\EventoController::class);
+
+    //fotos
+    Route::resource('foto', \App\Http\Controllers\FotoController::class);
 
     //configuração
     Route::get('/configuracao/edit/{configuracao}', [\App\Http\Controllers\ConfiguracaoController::class, 'edit'])->name('admin.configuracao.edit');

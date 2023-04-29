@@ -19,4 +19,15 @@ class SiteVideoController extends Controller
 
         return view('site.midia-video.index', ['videos' => $videos, 'request' => $request->all()]);
     }
+
+    public function view($id){
+
+        $video = Video::find($id);
+
+        if(!$video){
+            abort(404, "Midía de Vídeo não encontrado.");
+        }
+
+        return view('site.midia-video.view', ['video' => $video]);
+    }
 }

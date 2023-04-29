@@ -40,7 +40,7 @@
                     <a href="#"><h3>Galeria</h3></a>
                     <ul>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="" title="Galeria de Imagens"> Galeria de Imagens </a>
+                            <a class="menu-a-link" href="/foto" title="Galeria de Imagens"> Galeria de Imagens </a>
                         </li>
                         <li class="menu-li-link">
                             <a class="menu-a-link" href="/video" title="Galeria de Vídeos"> Galeria de Vídeos </a>
