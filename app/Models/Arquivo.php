@@ -16,4 +16,17 @@ class Arquivo extends Model
         return $this->belongsTo('App\Models\Foto');
     }
 
+    public function getPrettyName($maxLength = 30)
+    {
+        $descricao = trim($this->legenda);
+        $nomeOriginal = $this->nome_original;
+
+        $nome = ($descricao) ? $descricao : $nomeOriginal;
+
+        if (strlen($nome) > $maxLength){
+            $nome = substr($nome,0,$maxLength).'... '.$this->extensao;
+        }
+
+        return $nome;
+    }
 }

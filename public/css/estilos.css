@@ -582,7 +582,6 @@ a.desc:after {
   font-size: 22px;
 }
 
-
 .titulo {
   text-align: left;
   position: relative;
@@ -1096,6 +1095,15 @@ h3 {
 
 .form-group{
   margin-bottom: 8px;
+}
+
+.btn-anexos{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.btn-anexos span{
+  margin-right: 5px;
 }
 
 /* Formulario de contato */

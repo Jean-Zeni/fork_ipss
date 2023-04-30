@@ -23,3 +23,8 @@ a {
 .label-success {
   background-color: #5cb85c;
 }
+
+.font-d{
+  font-size: 65px !important;
+  margin-left: 35px;
+}

@@ -49,6 +49,12 @@ Breadcrumbs::for('fotoView', function (BreadcrumbTrail $trail, $foto) {
     $trail->push($foto->titulo, route('site.foto.view', $foto));
 });
 
+// Home > Pagina > [Pagina]
+Breadcrumbs::for('paginaView', function (BreadcrumbTrail $trail, $pagina) {
+    $trail->parent('site');
+    $trail->push($pagina->titulo, route('site.pagina.view', $pagina));
+});
+
 
 Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
     $trail->parent('site');

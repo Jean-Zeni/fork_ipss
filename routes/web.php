@@ -35,6 +35,8 @@ Route::get('/foto', [\App\Http\Controllers\SiteFotoController::class, 'index'])-
 
 Route::get('/foto/view/{id}', [\App\Http\Controllers\SiteFotoController::class, 'view'])->name('site.foto.view');
 
+Route::get('/ipss/{id}', [\App\Http\Controllers\SitePaginaController::class, 'view'])->name('site.pagina.view');
+
 Route::get('/agenda', [\App\Http\Controllers\SiteEventoController::class, 'index'])->name('site.agenda');
 
 Route::get('/conselho/view/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
@@ -71,6 +73,9 @@ Route::middleware([
 
     //fotos
     Route::resource('foto', \App\Http\Controllers\FotoController::class);
+
+    //paginas
+    Route::resource('pagina', \App\Http\Controllers\PaginaController::class);
 
     //configuração
     Route::get('/configuracao/edit/{configuracao}', [\App\Http\Controllers\ConfiguracaoController::class, 'edit'])->name('admin.configuracao.edit');

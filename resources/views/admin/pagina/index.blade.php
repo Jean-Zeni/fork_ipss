@@ -1,14 +1,14 @@
-@section('titulo', 'Fotos | Administrativo')
+@section('titulo', 'Páginas | Administrativo')
 
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Fotos') }}
+            {{ __('Páginas') }}
         </h2>
     </x-slot>
     <div class="container margin40T">
         <div style="width:90%; margin-left: auto; margin-right:auto;">
-            <a href="{{ route('foto.create') }}" class="btn btn-success">Novo</a>
+            <a href="{{ route('pagina.create') }}" class="btn btn-success">Novo</a>
         </div>
         <br>
         <div class="informacao-pagina">
@@ -26,13 +26,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($fotos as $foto)
+                            @foreach ($paginas as $pagina)
                                 <tr>
-                                    <td>{{ $foto->titulo }}</td>
-                                    <th>{{ $foto->resumo }}</th>
-                                    <th>{{ ($foto->ativo == 1) ? 'Sim' : 'Não' }}</th>
+                                    <td>{{ $pagina->titulo }}</td>
+                                    <th>{{ $pagina->resumo }}</th>
+                                    <th>{{ ($pagina->ativo == 1) ? 'Sim' : 'Não' }}</th>
                                     <th>
-                                        <a href="{{ route('foto.show', ['foto' => $foto->id]) }}">
+                                        <a href="{{ route('pagina.show', ['pagina' => $pagina->id]) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,7 +43,7 @@
                                         </a>
                                     </th>
                                     <th>
-                                        <a href="{{ route('foto.edit', ['foto' => $foto->id]) }}">
+                                        <a href="{{ route('pagina.edit', ['pagina' => $pagina->id]) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -52,7 +52,7 @@
                                         </a>
                                     </th>
                                     <th>
-                                        <form action="{{ route('foto.destroy', ['foto' => $foto->id]) }}" method="POST"
+                                        <form action="{{ route('pagina.destroy', ['pagina' => $pagina->id]) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('Você tem certeza que quer excluir este item? ') }}');"
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -65,7 +65,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $fotos->appends($request)->links() }}
+                    {{ $paginas->appends($request)->links() }}
             </div>
         </div>
     </div>
