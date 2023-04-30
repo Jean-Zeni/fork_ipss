@@ -70,7 +70,7 @@
     </section>
     <br><br><br><br>
     <!--Modal-->
-    @if ($evento)
+    @if ($eventosLista)
         @include('site.agenda._modal_agenda' , ['evento' => $evento])
     @endif
 @endsection
