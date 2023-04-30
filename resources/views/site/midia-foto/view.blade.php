@@ -1,5 +1,5 @@
 <?php
-if($foto->arquivos){
+if(count($foto->arquivos) != 0){
     $fotos = $foto->arquivos;
 }
 ?>
