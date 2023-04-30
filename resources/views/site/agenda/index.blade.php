@@ -61,7 +61,7 @@
             <br>
         </div>
         <div class="row">
-          @if ($eventosLista)              
+          @if (count($eventosLista) != 0)              
             @foreach ($eventosLista as $evento)      
                 @include('site.agenda._list_item' , ['evento' => $evento])
             @endforeach
@@ -70,7 +70,7 @@
     </section>
     <br><br><br><br>
     <!--Modal-->
-    @if ($eventosLista)
+    @if (count($eventosLista) != 0)
         @include('site.agenda._modal_agenda' , ['evento' => $evento])
     @endif
 @endsection
