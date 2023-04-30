@@ -3,11 +3,14 @@ if(count($pagina->arquivos) != 0){
     $arquivos = $pagina->arquivos;
 }
 $imagemCapa = $pagina->getImagemCapa();
-$imagens = $pagina->getImagems($imagemCapa->id);
+if($imagemCapa){
+    $imagens = $pagina->getImagems($imagemCapa->id);
+    $idImagemCapa = $imagemCapa->id;
+}
 if($pagina->getDocumentos()){
     $documentos= $pagina->getDocumentos();
 }
-$idImagemCapa = $imagemCapa->id;
+
 ?>
 
 @extends('site.layouts.main')
@@ -38,33 +41,35 @@ $idImagemCapa = $imagemCapa->id;
                             @endif
                         </div>
                         <br><br>
-                        @if (count($imagens) != 0)
-                            <br />
-                            <div class="row">
-                                <div class="col-12">
-                                    @foreach ($imagens as $arquivo)
-                                        <div class="mySlides">
-                                            <img src="{{url('/')}}/storage/uploads/pagina/{{$arquivo->id}}/{{$arquivo->arquivo}}"  width="100%" alt="{{$arquivo->nome_original}}" title="{{$arquivo->nome_original}}"> 
-                                            @if ($arquivo->legenda)
-                                                <span>{{$arquivo->legenda}}</span>
-                                            @endif 
-                                        </div>  
-                                    @endforeach
-                                    <div class="row nomargin">
-                                        <div id="fotos" class="col-12">
-                                            <ul>    
-                                                @foreach ($imagens as $key=>$arquivo)
-                                                    <li><img class="demo cursor" src="{{url('/')}}/storage/uploads/pagina/{{$arquivo->id}}/{{$arquivo->arquivo}}" style="width:100%; height:75px;" onclick="currentSlide(<?=$key+1?>)" alt="<?=$arquivo->nome_original?>"></li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn-Padrao" id="tras"><</button>
-                                            <button class="btn-Padrao" id="frente">></button>
+                        @if ($imagemCapa)
+                            @if (count($imagens) != 0)
+                                <br />
+                                <div class="row">
+                                    <div class="col-12">
+                                        @foreach ($imagens as $arquivo)
+                                            <div class="mySlides">
+                                                <img src="{{url('/')}}/storage/uploads/pagina/{{$arquivo->id}}/{{$arquivo->arquivo}}"  width="100%" alt="{{$arquivo->nome_original}}" title="{{$arquivo->nome_original}}"> 
+                                                @if ($arquivo->legenda)
+                                                    <span>{{$arquivo->legenda}}</span>
+                                                @endif 
+                                            </div>  
+                                        @endforeach
+                                        <div class="row nomargin">
+                                            <div id="fotos" class="col-12">
+                                                <ul>    
+                                                    @foreach ($imagens as $key=>$arquivo)
+                                                        <li><img class="demo cursor" src="{{url('/')}}/storage/uploads/pagina/{{$arquivo->id}}/{{$arquivo->arquivo}}" style="width:100%; height:75px;" onclick="currentSlide(<?=$key+1?>)" alt="<?=$arquivo->nome_original?>"></li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn-Padrao" id="tras"><</button>
+                                                <button class="btn-Padrao" id="frente">></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endif
                         <br>
                         @if ($pagina->link_youtube)
