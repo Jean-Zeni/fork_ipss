@@ -52,7 +52,7 @@ $config = Configuracao::getConfig();
             <section class="bg-dark">
                 <div class="container-fluid padding20">
                     <div class="row">
-                        <div class="col-12 col-md-12 col-lg-6 margin-bottom-responsiva">
+                        <div class="col-12 col-md-12 col-lg-12 margin-bottom-responsiva">
                             <div class="row">
                                 <div class="col-12">
                                     <h2 class="titulo">Horários e dias de reunião<span class="square"></span></h2>
@@ -97,14 +97,6 @@ $config = Configuracao::getConfig();
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-12 col-lg-6 margin-bottom-responsiva">
-                            <div class="col-12">
-                                <h2 class="titulo">Agenda<span class="square"></span></h2>
-                            </div>
-                            <div class="col-12 agenda-capa" >
-                                agenda
                             </div>
                         </div>
                     </div>

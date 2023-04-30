@@ -28,3 +28,11 @@ a {
   font-size: 65px !important;
   margin-left: 35px;
 }
+
+.padding20{
+  padding: 20px;
+}
+
+.bg-warning{
+  background-color: #fcf8e3 !important;
+}
