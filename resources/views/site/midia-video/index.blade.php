@@ -35,7 +35,7 @@
                             {{ $errors->has('termo') ? $errors->first('termo') : '' }}
                             </div>
                             <button type="submit" class="btn-padrao">Buscar</button>
-                            <a href="/video" class="btn-padrao"><i class="fa fa-recycle"></i>Limpar</a>
+                            <a href="/video" class="btn-padrao">Limpar</a>
                         <form>
                     </div>
                 </div>
