@@ -1,5 +1,5 @@
 <?php
-use App\models\Configuracao;
+use App\Models\Configuracao;
 
 $config = Configuracao::getConfig();
 ?>

@@ -67,6 +67,11 @@ class VideoController extends Controller
             }else{
                 $video->destaque = 0;
             }
+            if($request->input('devocional')){
+                $video->devocional = $request->input('devocional');
+            }else{
+                $video->devocional = 0;
+            }
             if($video->save()){
                 alert()->success('Concluído','Registro adicionado com sucesso.');
             }
@@ -125,6 +130,9 @@ class VideoController extends Controller
             $request->validate($regras, $feedback);
             if($request->has('destaque') == null){
                 $video->destaque = 0;
+            }
+            if($request->has('devocional') == null){
+                $video->devocional = 0;
             }
             //vai preencher o objeto de acordo com a variavel fillable no model
             if($video->update($request->all())){

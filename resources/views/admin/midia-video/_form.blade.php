@@ -49,6 +49,10 @@
             <input type="checkbox" id="destaque" name="destaque" value="1" @if(isset($video)){{ $video->destaque==1?'checked':'' }}@endif>
             <label for="destaque">Destaque</label>
         </div>
+        <div class="col-2">
+            <input type="checkbox" id="devocional" name="devocional" value="1" @if(isset($video)){{ $video->devocional==1?'checked':'' }}@endif>
+            <label for="devocional">Devocional</label>
+        </div>
     </div>
     <br>
     <button type="submit" class="btn btn-success">Cadastrar</button>

@@ -42,6 +42,10 @@
                         <td>{{ ($video->destaque == 1) ? 'Sim' : 'Não'  }}</td>
                     </tr>
                     <tr>
+                        <td>Devocional:</td>
+                        <td>{{ ($video->devocional == 1) ? 'Sim' : 'Não'  }}</td>
+                    </tr>
+                    <tr>
                         <td>Data de Publicação:</td>
                         <td>{{ $video->data_publicacao->format('d/m/Y') }}</td>
                     </tr>

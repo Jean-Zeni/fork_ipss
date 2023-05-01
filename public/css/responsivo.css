@@ -80,6 +80,9 @@
     .margin-midiasT{
         margin-right: 30px !important;
     }
+    .margin-reuniao{
+        margin-bottom: 35px;
+    }
 }
 
 
@@ -159,6 +162,9 @@
     .margin-midiasT{
         margin-right: 35px !important;
     }
+    .margin-reuniao{
+        margin-bottom: 35px;
+    }
 }
 
 
@@ -232,6 +238,9 @@
     .margin-midiasT{
         margin-right: 40px !important;
     }
+    .margin-reuniao{
+        margin-bottom: 35px;
+    }
 }
 
 
@@ -292,6 +301,9 @@
     }
     .margin-midiasT{
         margin-right: 45px !important;
+    }
+    .margin-reuniao{
+        margin-bottom: 35px;
     }
 }
 
@@ -440,12 +452,20 @@
     }
     .menu-ul {
         min-width:230px !important;
+        display: flex;
+        flex-direction: column;
     }
     .menu-li-root {
         width:230px !important;
         line-height:auto !important;
         margin-top:0 !important;
         border-top:1px solid rgb(255, 255, 255) !important;
+        flex-basis: unset;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        text-align: center;
+        cursor: pointer;
     }
     .menu-li-root:hover {
         border-top:0 !important;
@@ -466,7 +486,15 @@
         width:230px;
         border-radius:0;
         overflow-y:scroll !important;
+        visibility: initial;
+        display: none;
+        position: initial;
     }
+
+    .menu-li-root:hover .menu-span-items {
+        display: block;
+    }
+
     .menu-span-sub h3 {
         font-size:.9em;
         padding:10px 0;

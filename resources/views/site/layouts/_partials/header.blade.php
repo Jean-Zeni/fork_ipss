@@ -55,8 +55,17 @@
             </div>
             <div id="posicao-menu" class="col-2 col-md-2 col-lg-4 col-xl-8">
                 @include('site.layouts._partials.menu')
-                <span data-menu-toggle="menu" class="menu-fechado"><i> menu</span>
+                <span data-menu-toggle="menu" class="menu-fechado" onClick="togglePopup();"><span class="material-symbols-outlined">menu</span> menu</span>
             </div>
         </div>
     </div>
 </header>
+<script type="text/javascript">
+    function togglePopup() {
+        if (document.getElementById('menu').style.display == 'block') {
+            document.getElementById('menu').style.display = 'none';
+        }else {
+            document.getElementById('menu').style.display = 'block';
+        }
+    }
+</script>

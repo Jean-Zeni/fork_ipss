@@ -31,7 +31,9 @@
   transition: all 500ms;
 }
 
-
+.margin65B{
+  margin-bottom: 65px;
+}
 
 #whatsapp:hover{
   transform: scale(1.3);
@@ -256,7 +258,7 @@ a.desc:after {
 
   .titulo-reuniao{
     color: #000000;
-    font-size: 21px;
+    font-size: 23px;
     font-weight: 500;
     line-height: 0;
     margin-top: 25px;

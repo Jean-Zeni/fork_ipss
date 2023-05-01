@@ -60,41 +60,37 @@ $config = Configuracao::getConfig();
                             </div>
                             <br><br><br>
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="row nomargin text-center">
-                                        <div class="row">
-                                            <div class="text-center"><img src="{{Request::url()}}/images/oracao.png" alt="Oração" width="70px" height="70px" class="elemento-reuniao"></div>
-                                        </div>
-                                        <div class="row">
-                                            <h3 class="titulo-reuniao">Culto de Oração</h3>
-                                        </div>
-                                        <div class="row text-center ">
-                                            <div class="text-center contraste-atendimento"><span>Quinta-feira, ás 19:30h.</span></div>
-                                        </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 nomargin text-center">
+                                    <div class="row">
+                                        <div class="text-center"><img src="{{Request::url()}}/images/oracao.png" alt="Oração" width="70px" height="70px" class="elemento-reuniao"></div>
                                     </div>
-                                    <hr />
-                                    <div class="row nomargin text-center">
-                                        <div class="row">
-                                            <div class="text-center"><img src="{{Request::url()}}/images/ebd.png" alt="Ebd" width="70px" height="70px" class="elemento-reuniao"></div>
-                                        </div>
-                                        <div class="row">
-                                            <h3 class="titulo-reuniao">Escola Bíblica Domínical</h3>
-                                        </div>
-                                        <div class="row text-center ">
-                                            <div class="text-center contraste-atendimento"><span>Domingo, ás 9h.</span></div>
-                                        </div>
+                                    <div class="row">
+                                        <h3 class="titulo-reuniao">Culto de Oração</h3>
                                     </div>
-                                    <hr />
-                                    <div class="row nomargin text-center">
-                                        <div class="row">
-                                            <div class="text-center"><img src="{{Request::url()}}/images/Culto.png" alt="Culto" width="70px" height="70px" class="elemento-reuniao"></div>
-                                        </div>
-                                        <div class="row">
-                                            <h3 class="titulo-reuniao">Culto Solene</h3>
-                                        </div>
-                                        <div class="row text-center ">
-                                            <div class="text-center contraste-atendimento"><span>Domingo, ás 19h.</span></div>
-                                        </div>
+                                    <div class="row text-center ">
+                                        <div class="text-center margin-reuniao margin65B"><span>Quinta-feira, ás 19:30h.</span></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 nomargin text-center">
+                                    <div class="row">
+                                        <div class="text-center"><img src="{{Request::url()}}/images/ebd.png" alt="Ebd" width="70px" height="70px" class="elemento-reuniao"></div>
+                                    </div>
+                                    <div class="row">
+                                        <h3 class="titulo-reuniao">Escola Bíblica Domínical</h3>
+                                    </div>
+                                    <div class="row text-center ">
+                                        <div class="text-center margin-reuniao margin65B"><span>Domingo, ás 9h.</span></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 nomargin text-center">
+                                    <div class="row">
+                                        <div class="text-center"><img src="{{Request::url()}}/images/Culto.png" alt="Culto" width="70px" height="70px" class="elemento-reuniao"></div>
+                                    </div>
+                                    <div class="row">
+                                        <h3 class="titulo-reuniao">Culto Solene</h3>
+                                    </div>
+                                    <div class="row text-center ">
+                                        <div class="text-center margin-reuniao margin65B"><span>Domingo, ás 19h.</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -113,32 +109,27 @@ $config = Configuracao::getConfig();
                                 <h2 class="titulo">Galeria de Imagens<span class="square"></span></h2>
                             </div>
                         </div>                
-                        
-                                <a href="">
-                                    <article class="col-12 nopadding home-noticia-principal">
-                                        <img src="{{Request::url()}}/images/indisponivel-ipss.png" alt="Banner" width="100%">
-                                        <strong>
-                                            <h3>teste</h3>
-                                            <span class="tarja"></span>
-                                        </strong>
-                                    </article>
-                                </a>
+                        @if (count($imagens) != 0)
+                            @include('site.principal._components.carousel-fotos',['imagens'=>$imagens])
+                        @endif
                     </div>
                     <div class="col-12 col-md-12 col-lg-6 margin-bottom-responsiva">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="titulo">Ações Sociais<span class="square"></span></h2>
+                                <h2 class="titulo">Devocional<span class="square"></span></h2>
                             </div>
                         </div>
-                        <a href="">
-                            <article class="col-12 nopadding home-noticia-principal">
-                                <img src="{{Request::url()}}/images/indisponivel-ipss.png" width="100%">
-                                <strong>
-                                    <h3>teste</h3>
-                                    <span class="tarja"></span>
-                                </strong>
-                            </article>
-                        </a>
+                        @if ($devocional)
+                            <a href="/video/view/{{$devocional->id}}">
+                                <article class="col-12 nopadding home-noticia-principal">
+                                    <img src="{{$devocional->getThumbVideo()}}" alt="{{$devocional->titulo}}" width="100%">
+                                    <strong>
+                                        <h3>{{$devocional->titulo}}</h3>
+                                        <span class="tarja"></span>
+                                    </strong>
+                                </article>
+                            </a>
+                        @endif
                     </div>
                 </div>
             </section>
