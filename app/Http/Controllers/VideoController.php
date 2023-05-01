@@ -40,21 +40,7 @@ class VideoController extends Controller
         //inclusao
         if($request->input('_token') != '' && $request->input('id') == ''){
             //validacao
-            $regras = [
-                'titulo' => 'required|max:256',
-                'data_publicacao' => 'required',
-                'link' => 'required|max:256',
-                'resumo' => 'required',
-            ];
-
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido',
-                'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
-                'link.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.'
-            ];
-
-
-            $request->validate($regras, $feedback);
+            $request->validate(Video::rules(), Video::feedback());
             $video = new Video();
             //vai preencher o objeto de acordo com o request
             $video->titulo = $request->input('titulo');
@@ -113,21 +99,7 @@ class VideoController extends Controller
          //inclusao
          if($request->input('_token') != '' && $request->input('id') == ''){
             //validacao
-            $regras = [
-                'titulo' => 'required|max:256',
-                'data_publicacao' => 'required',
-                'link' => 'required|max:256',
-                'resumo' => 'required',
-            ];
-
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido',
-                'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
-                'link.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.'
-            ];
-
-
-            $request->validate($regras, $feedback);
+            $request->validate(Video::rules(), Video::feedback());
             if($request->has('destaque') == null){
                 $video->destaque = 0;
             }

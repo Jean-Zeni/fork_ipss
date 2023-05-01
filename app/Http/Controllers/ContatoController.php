@@ -40,21 +40,8 @@ class ContatoController extends Controller
         //inclusao
         if($request->input('_token') != '' && $request->input('id') == ''){
             //validacao
-            $regras = [
-                'nome' => 'required|max:150',
-                'email' => 'required|email',
-                'telefone' => 'required|max:15',
-                'mensagem' => 'required',
-            ];
+            $request->validate(Contato::rules(), Contato::feedback());
 
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido',
-                'nome.max' => 'O campo :attribute não pode ultrapassar 150 caracteres.',
-                'telefone.max' => 'O campo :attribute não pode ultrapassar 15 caracteres.',
-                'email.email' => 'Digite um email válido.'
-            ];
-
-            $request->validate($regras, $feedback);
             $contato = new Contato();
             //vai preencher o objeto de acordo com o request
             $contato->nome = $request->input('nome');
@@ -117,11 +104,12 @@ class ContatoController extends Controller
             //vai preencher o objeto de acordo com o request
             $contato->resposta = $request->input('resposta');
             $contato->status = $request->input('status');
-            $contato->data_resposta = date('Y-m-d H:i:s');
-            $contato->status = Contato::STATUS_ABERTO;
+            $contato->data_resposta = new \DateTime();
+            $contato->status = $request->input('status');
             $contato->tipo = Contato::TIPO_CONTATO;
             $contato->ativo = 1;
             if($contato->update()){
+                \Illuminate\Support\Facades\Mail::send(new \App\Mail\Contato($contato));
                 alert()->success('Concluído','Registro atualizado com sucesso.');
                 return redirect()->route('contato.show', ['contato' => $contato->id]);
             }

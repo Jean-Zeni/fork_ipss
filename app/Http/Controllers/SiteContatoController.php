@@ -33,6 +33,7 @@ class SiteContatoController extends Controller
             $contato->tipo = Contato::TIPO_CONTATO;
             $contato->ativo = 1;
             if($contato->save()){
+                \Illuminate\Support\Facades\Mail::send(new \App\Mail\Contato($contato));
                 alert()->success('Concluído','Contato realizado com sucesso.');
                 return redirect()->route('site.contato');
             }else{
@@ -57,6 +58,7 @@ class SiteContatoController extends Controller
             $contato->tipo = Contato::TIPO_CONTATO_EVANGELISMO;
             $contato->ativo = 1;
             if($contato->save()){
+                \Illuminate\Support\Facades\Mail::send(new \App\Mail\Contato($contato));
                 alert()->success('Concluído','Contato realizado com sucesso.');
                 return redirect()->route('site.contato.evangelismo');
             }else{

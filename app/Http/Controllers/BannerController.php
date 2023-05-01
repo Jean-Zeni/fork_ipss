@@ -44,25 +44,7 @@ class BannerController extends Controller
         //inclusao
         if($request->input('_token') != '' && $request->input('id') == ''){
             //validacao
-            $regras = [
-                'titulo' => 'required|max:256',
-                'data_inicio' => 'required',
-                'data_fim' => 'required',
-                'link' => 'max:256',
-                'ordem' => 'required',
-                'arquivo' => 'image'
-            ];
-
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido',
-                'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
-                'link.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
-                'arquivo_id.exists' => "O fornecedor informado não existe!",
-                'arquivo.image' => "Tipo não suportado, envie uma imagem ('jpg, jpeg, png...')"
-            ];
-
-
-            $request->validate($regras, $feedback);
+            $request->validate(Banner::rules(), Banner::feedback());
             $banner = new Banner();
             //vai preencher o objeto de acordo com o request
             $banner->titulo = $request->input('titulo');
@@ -161,24 +143,9 @@ class BannerController extends Controller
     {
             //inclusao
         if($request->input('_token') != '' && $request->input('id') == ''){
+
             //validacao
-            $regras = [
-                'titulo' => 'required|max:256',
-                'ordem' => 'required',
-                'data_inicio' => 'required',
-                'data_fim' => 'required',
-                'link' => 'max:256',
-                'arquivo' => 'image'
-            ];
-
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido',
-                'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
-                'link.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
-                'arquivo.image' => "Tipo não suportado, envie uma imagem ('jpg, jpeg, png...')"
-            ];
-
-            $request->validate($regras, $feedback);
+            $request->validate(Banner::rules(), Banner::feedback());
 
             $table = 'banner';
                 // Define o valor default para a variável que contém o nome da imagem 

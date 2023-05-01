@@ -13,6 +13,27 @@ class Video extends Model
 
     protected $dates = ['created_at', 'updated_at', 'data_publicacao'];
 
+    public static function rules(){
+        $regras = [
+            'titulo' => 'required|max:256',
+            'data_publicacao' => 'required',
+            'link' => 'required|max:256',
+            'resumo' => 'required',
+        ];
+
+        return $regras;
+    }
+
+    public static function feedback(){
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
+            'link.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.'
+        ];
+
+        return $feedback;
+    }
+
     public function getYouTubeId()
     {
         if (empty($this->link)) {

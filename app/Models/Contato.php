@@ -30,7 +30,7 @@ class Contato extends Model
             'telefone' => 'required|max:15',
             'mensagem' => 'required',
         ];
-
+        
         return $regras;
     }
 
