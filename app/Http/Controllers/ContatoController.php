@@ -14,7 +14,7 @@ class ContatoController extends Controller
      */
     public function index(Request $request)
     {
-        $contatos = Contato::paginate(10);
+        $contatos = Contato::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.contato.index', ['contatos' => $contatos, 'request' => $request->all()]);
     }
