@@ -41,14 +41,18 @@ Route::get('/agenda', [\App\Http\Controllers\SiteEventoController::class, 'index
 
 Route::get('/conselho/view/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
 
-Route::get('envio-email', function(){
+Route::get('/admin', function(){
+    return redirect()->route('dashboard');
+});
+
+/*Route::get('envio-email', function(){
     $contato = new \App\Models\Contato();
     $contato->nome = "Giordani";
     $contato->email = "dani12xbox@gmail.com";
     $contato->status = \App\Models\Contato::STATUS_ABERTO;
     //return new \App\Mail\Contato($contato);
     \Illuminate\Support\Facades\Mail::send(new \App\Mail\Contato($contato));
-});
+});*/
 
 Route::middleware([
     'auth:sanctum',
