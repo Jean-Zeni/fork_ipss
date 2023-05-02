@@ -17,7 +17,7 @@ class FotoController extends Controller
      */
     public function index(Request $request)
     {
-        $fotos = Foto::paginate(10);
+        $fotos = Foto::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.midia-foto.index', ['fotos' => $fotos, 'request' => $request->all()]);
     }

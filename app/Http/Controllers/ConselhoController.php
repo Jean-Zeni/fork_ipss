@@ -17,7 +17,7 @@ class ConselhoController extends Controller
      */
     public function index(Request $request)
     {
-        $conselhos = Conselho::paginate(10);
+        $conselhos = Conselho::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.conselho.index', ['conselhos' => $conselhos, 'request' => $request->all()]);
     }

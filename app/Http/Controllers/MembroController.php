@@ -17,7 +17,7 @@ class MembroController extends Controller
      */
     public function index(Request $request)
     {
-        $membros = Membro::paginate(10);
+        $membros = Membro::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.membro.index', ['membros' => $membros, 'request' => $request->all()]);
     }

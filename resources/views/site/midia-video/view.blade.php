@@ -1,6 +1,6 @@
 @extends('site.layouts.main')
 
-@section('titulo', $video->nome)
+@section('titulo', $video->titulo)
 
 @section('conteudo')
 {{ Breadcrumbs::render('videoView', $video) }}

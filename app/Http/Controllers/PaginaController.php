@@ -17,7 +17,7 @@ class PaginaController extends Controller
      */
     public function index(Request $request)
     {
-        $paginas = Pagina::paginate(20);
+        $paginas = Pagina::orderBy('id', 'desc')->paginate(20);
 
         return view('admin.pagina.index', ['paginas' => $paginas, 'request' => $request->all()]);
     }

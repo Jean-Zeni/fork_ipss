@@ -15,7 +15,7 @@ class EventoController extends Controller
      */
     public function index(Request $request)
     {
-        $eventos = Evento::paginate(10);
+        $eventos = Evento::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.evento.index', ['eventos' => $eventos, 'request' => $request->all()]);
     }

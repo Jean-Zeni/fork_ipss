@@ -14,7 +14,7 @@ class VideoController extends Controller
      */
     public function index(Request $request)
     {
-        $videos = Video::paginate(10);
+        $videos = Video::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.midia-video.index', ['videos' => $videos, 'request' => $request->all()]);
     }
