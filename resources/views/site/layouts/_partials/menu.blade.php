@@ -7,16 +7,16 @@
                     <a href="#"><h3>Quem somos</h3></a>
                     <ul>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/ipss/1" title="Protestantismo"> Protestantismo </a>
+                            <a class="menu-a-link" href="/ipss/1/protestantismo" title="Protestantismo"> Protestantismo </a>
                         </li>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/ipss/2" title="História da IPB"> História da IPB </a>
+                            <a class="menu-a-link" href="/ipss/2/historia-da-igreja-presbiteriana-do-brasil" title="História da IPB"> História da IPB </a>
                         </li>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/ipss/3" title="Nossa História"> Nossa História </a>
+                            <a class="menu-a-link" href="/ipss/3/nossa-historia" title="Nossa História"> Nossa História </a>
                         </li>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/ipss/4" title="Doutrina"> Doutrina </a>
+                            <a class="menu-a-link" href="/ipss/4/doutrina" title="Doutrina"> Doutrina </a>
                         </li>
                     </ul>
                 </span>
@@ -24,10 +24,10 @@
                     <a href="#"><h3>Sociedades Internas</h3></a>
                     <ul>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/ipss/5" title="UPH"> UPH </a>
+                            <a class="menu-a-link" href="/ipss/5/uniao-presbiteriana-homens" title="UPH"> UPH </a>
                         </li>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/ipss/6" title="SAF"> SAF </a>
+                            <a class="menu-a-link" href="/ipss/6/sociedade-auxiliadora-feminina" title="SAF"> SAF </a>
                         </li>
                     </ul>
                 </span>
@@ -58,7 +58,7 @@
                 <span class="menu-span-sub">
                     <ul>
                         <li class="menu-li-link">
-                            <a class="menu-a-link" href="/conselho/view/1" title="Conselho"> Conselho </a>
+                            <a class="menu-a-link" href="/conselho/1" title="Conselho"> Conselho </a>
                         </li>
                     </ul>
                 </span>

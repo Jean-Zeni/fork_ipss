@@ -29,17 +29,17 @@ Route::post('/contato/save-contato-evangelismo', [\App\Http\Controllers\SiteCont
 
 Route::get('/video', [\App\Http\Controllers\SiteVideoController::class, 'index'])->name('site.video');
 
-Route::get('/video/view/{id}', [\App\Http\Controllers\SiteVideoController::class, 'view'])->name('site.video.view');
+Route::get('/video/{id}/{nome?}', [\App\Http\Controllers\SiteVideoController::class, 'view'])->name('site.video.view');
 
 Route::get('/foto', [\App\Http\Controllers\SiteFotoController::class, 'index'])->name('site.foto');
 
-Route::get('/foto/view/{id}', [\App\Http\Controllers\SiteFotoController::class, 'view'])->name('site.foto.view');
+Route::get('/foto/{id}/{nome?}', [\App\Http\Controllers\SiteFotoController::class, 'view'])->name('site.foto.view');
 
-Route::get('/ipss/{id}', [\App\Http\Controllers\SitePaginaController::class, 'view'])->name('site.pagina.view');
+Route::get('/ipss/{id}/{nome?}', [\App\Http\Controllers\SitePaginaController::class, 'view'])->name('site.pagina.view');
 
 Route::get('/agenda', [\App\Http\Controllers\SiteEventoController::class, 'index'])->name('site.agenda');
 
-Route::get('/conselho/view/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
+Route::get('/conselho/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
 
 Route::get('/admin', function(){
     return redirect()->route('dashboard');
