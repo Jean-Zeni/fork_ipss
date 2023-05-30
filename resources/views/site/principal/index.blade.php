@@ -120,7 +120,7 @@ $config = Configuracao::getConfig();
                             </div>
                         </div>
                         @if ($devocional)
-                            <a href="/video/view/{{$devocional->id}}">
+                            <a href="/video/{{$devocional->id}}">
                                 <article class="col-12 nopadding home-noticia-principal">
                                     <img src="{{$devocional->getThumbVideo()}}" alt="{{$devocional->titulo}}" width="100%">
                                     <strong>

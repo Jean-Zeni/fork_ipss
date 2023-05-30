@@ -5,7 +5,7 @@
     <div class="carousel-inner">
         @foreach ($imagens as $imagem)
         <div class="carousel-item active">
-            <a href="/foto/view/{{$imagem->id}}">
+            <a href="/foto/{{$imagem->id}}">
                 <article class="col-12 nopadding home-noticia-principal">
                     <img src="{{url('/')}}/storage/uploads/foto/{{$imagem->arquivos[0]->id}}/{{$imagem->arquivos[0]->arquivo}}" alt="{{$imagem->titulo}}" width="100%">
                     <strong>

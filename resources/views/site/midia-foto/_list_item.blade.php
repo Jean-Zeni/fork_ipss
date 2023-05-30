@@ -5,7 +5,7 @@ strtr(utf8_decode(trim($foto->titulo)), utf8_decode("áàãâéêíóôõúüñ�
 
 ?>
 
-<a href="/foto/{{$foto->id}}/{{$foto->titulo}}">
+<a href="/foto/{{$foto->id}}/{{preg_replace('/[ -]+/' , '-' , $titulo_url)}}">
     @if (count($foto->arquivos) != 0)
         <img src="{{url('/')}}/storage/uploads/foto/{{$foto->arquivos[0]->id}}/{{$foto->arquivos[0]->arquivo}}"  width="100%" class="thumb-foto" alt="{{$foto->titulo}}" title="{{$foto->titulo}}"> 
     @else
