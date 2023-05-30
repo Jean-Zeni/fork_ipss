@@ -42,6 +42,17 @@
                     <x-nav-link href="{{ route('admin.configuracao.edit', ['configuracao' => 1]) }}" :active="request()->routeIs('admin.configuracao.edit')">
                         {{ __('Configurações') }}
                     </x-nav-link>
+            
+                    <form method="POST" action="{{ route('logout') }}" x-data style="margin-top: 19px;margin-left: 145px;">
+                        @csrf
+
+                        <x-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                            this.closest('form').submit(); " role="button">
+                            <i class="fas fa-sign-out-alt"></i>
+
+                            {{ __('Sair') }}
+                        </x-nav-link>
+                    </form>
                 </div>
             </div>
 
