@@ -18,7 +18,7 @@
 }
 
 .midias-topo{
-  height: 30px ;
+  height: 28px ;
 }
 
 #whatsapp {
@@ -41,7 +41,7 @@
 }
 
 .margin-midiasT{
-  margin-top: -47px;
+  margin-top: 0px;
   margin-right: 150px;
 }
 
@@ -349,6 +349,11 @@ a.desc:after {
     margin-top:10px;
     overflow: hidden;
     text-overflow:ellipsis;
+  }
+
+  .banner-capa{
+    width: 100%;
+    height: auto;
   }
   
 

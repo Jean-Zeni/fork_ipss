@@ -83,6 +83,10 @@
     .margin-reuniao{
         margin-bottom: 35px;
     }
+    .banner-capa{
+        width: 100%;
+        min-height: 240px;
+    }
 }
 
 
@@ -165,6 +169,10 @@
     .margin-reuniao{
         margin-bottom: 35px;
     }
+    .banner-capa{
+        width: 100%;
+        min-height: 260px;
+    }
 }
 
 
@@ -240,6 +248,10 @@
     }
     .margin-reuniao{
         margin-bottom: 35px;
+    }
+    .banner-capa{
+        width: 100%;
+        min-height: 280px;
     }
 }
 

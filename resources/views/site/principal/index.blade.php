@@ -137,8 +137,8 @@ $config = Configuracao::getConfig();
         <br><br>
     </div>
     @if ($config->googlemaps)        
-        <div class="row">
+        
             <?=$config->googlemaps?>
-        </div>
+        
     @endif
 @endsection

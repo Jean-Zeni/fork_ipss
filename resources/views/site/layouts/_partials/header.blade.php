@@ -1,8 +1,8 @@
 <header>
-    <div class="row bg-green midias-topo">
-        <div class="col-12">
+    <section class=" nomargin bg-green midias-topo">
+       
             <div class="text-right margin-midiasT">
-                <br><br>
+            
                 @if ($config->facebook)             
                     <a href="{{$config->facebook}}" target="_blank" class="midia-footer">
                         <img src="{{url('/')}}/images/facebook.png" alt="Facebook" width="24" class="midia-topo">
@@ -34,8 +34,8 @@
                     </a>
                 @endif
             </div>
-        </div>
-    </div>
+        
+    </section>
     <div id="logo" class="bg-dark">
         <div class="row margin-menu">
             <div id="logo-menu" class="col-10 col-md-10 col-lg-8 col-xl-4 nopadding">
