@@ -39,7 +39,7 @@
                             <div class="team-item p-4">
                                 <div class="overflow-hidden mb-4">
                                     @if ($membro->arquivo)
-                                        <img class="img-fluid" src="{{url('/')}}/storage/uploads/membro/{{$membro->arquivo->id}}/{{$membro->arquivo->arquivo}}" alt="{{$membro->nome}}">
+                                        <img class="img-fluid" src="{{url('/')}}/storage/uploads/membro/{{$membro->arquivo->id}}/{{$membro->arquivo->arquivo}}" alt="{{$membro->nome}}" style="width: 252px; height: 252px;object-fit: contain;">
                                     @endif
                                 </div>
                                 <h5 class="mb-0">{{$membro->nome}}</h5>
