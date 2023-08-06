@@ -11,30 +11,28 @@ $config = Configuracao::getConfig();
 @section('conteudo')
 @include('sweetalert::alert')
 {{ Breadcrumbs::render('contato') }}
-    <section class="container-fluid">
-        <div class="row">
-            <div class="col-md-7 col-sm-12 col-xs-12 margin20T margin-bottom-responsiva">
-                <div class="titulo">
-                    Dúvidas?
+    <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container contact-page py-5 px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-md-5 contact-form wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="mb-4">Dúvidas?</h1>
+                    <p class="mb-4">
+                        <?php if($config->descricao_contato):?>
+                            <?=$config->descricao_contato?>
+                        <?php endif?>
+                    </p>
+                    <div class="bg-light p-4">
+                        @include('site.contato._form')
+                    </div>
                 </div>
-                <br>
-                <?php if($config->descricao_contato):?>
-                    <?=$config->descricao_contato?>
-                <?php endif?>
-                <div class="row">
-                    <div class="col-md-8 col-sm-12 col-xs-12 margin20T">
-                        @include('site.contato-evangelismo._form')
+                <div class="col-md-7 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s">
+                    <div class="position-relative h-100">
+                        <?php if($config->arquivo):?>
+                            <img src="{{url('/')}}/storage/uploads/configuracao/{{$config->arquivo->id}}/{{$config->arquivo->arquivo}}" alt="Foolder">
+                        <?php endif?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <?php if($config->arquivo):?>
-                        <img src="{{url('/')}}/storage/uploads/configuracao/{{$config->arquivo->id}}/{{$config->arquivo->arquivo}}" alt="Foolder" class="banner-capa" width="100%">
-                    <?php endif?>
-                </div>
-            </div>
         </div>
-    </section>
-    <br><br><br><br>
+    </div>
 @endsection

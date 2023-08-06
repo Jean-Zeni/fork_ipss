@@ -1,9 +1,9 @@
-@section('titulo', $membro->titulo.' | Visualizar')
+@section('titulo', $membro->nome.' | Visualizar')
 
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Membro: <?=$membro->titulo?>
+            Membro: <?=$membro->nome?>
         </h2>
     </x-slot>
     <div class="container margin40T">
@@ -40,6 +40,18 @@
                     <tr>
                         <td>Resumo:</td>
                         <td>{{ $membro->resumo }}</td>
+                    </tr>
+                    <tr>
+                        <td>Descrição:</td>
+                        <td><?=$membro->descricao?></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook:</td>
+                        <td>{{ $membro->facebook }}</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram:</td>
+                        <td>{{ $membro->instagram }}</td>
                     </tr>
                     <tr>
                         <td>Ativo:</td>

@@ -9,7 +9,7 @@ class Membro extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'email', 'telefone', 'funcao', 'resumo', 'ordem', 'ativo', 'conselho_id'];
+    protected $fillable = ['nome', 'email', 'telefone', 'funcao', 'resumo', 'ordem', 'ativo', 'conselho_id', 'descricao', 'instagram', 'facebook'];
 
     public static function rules(){
         $regras = [

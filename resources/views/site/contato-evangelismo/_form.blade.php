@@ -3,33 +3,40 @@
  
  <div class="box-formulario">        
     <div class="formulario">
-        <form action="{{ route('site.save-contato-evangelismo') }}" method="post">
+        <form action="{{ route('site.save-contato') }}" method="post">
             @csrf
-            <span>
-                <input type="text" class="input-balao-up" id="nome" name="nome" placeholder="Nome" autocomplete="off" />
-                <label for="nome"><i class="material-symbols-outlined">person</i> </label>
-                {{ $errors->has('nome') ? $errors->first('nome') : '' }}
-            </span>
-            <span>
-                <input type="text" class="input-balao-up" id="email" name="email" placeholder="E-mail" autocomplete="off" />
-                <label for="email"> <i class="material-symbols-outlined">mail</i> </label>
-                {{ $errors->has('email') ? $errors->first('email') : '' }}
-            </span>
-            <span>
-                <input type="text" class="input-balao-up" id="telefone" name="telefone" placeholder="Telefone" autocomplete="off" />
-                <label for="telefone"> <i class="material-symbols-outlined">phone</i> </label>
-                {{ $errors->has('telefone') ? $errors->first('telefone') : '' }}
-            </span>
-            <span>
-                <textarea type="text" class="textarea-balao-up" id="mensagem" name="mensagem" rows="3" placeholder="Mensagem" autocomplete="off" ></textarea>
-                <label for="mensagem"> <i class="material-symbols-outlined">comment</i> </label>
-                {{ $errors->has('mensagem') ? $errors->first('mensagem') : '' }}
-            </span>
-            <div class="box-btn">
-                    
-                <button type="submit" class="btn-envia zoom-shadow">
-                    <i class="icon icon-forward-1"> Enviar</i>
-                </button>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome">
+                        <label for="name">Seu nome</label>
+                    </div>
+                    {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                        <label for="email">Seu email</label>
+                    </div>
+                    {{ $errors->has('email') ? $errors->first('email') : '' }}
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone">
+                        <label for="subject">Telefone</label>
+                    </div>
+                    {{ $errors->has('telefone') ? $errors->first('telefone') : '' }}
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="mensagem" name="mensagem" placeholder="Mensagem" style="height: 100px"></textarea>
+                        <label for="message">Mensagem</label>
+                    </div>
+                    {{ $errors->has('mensagem') ? $errors->first('mensagem') : '' }}
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Enviar</button>
+                </div>
             </div>
         </form>
     </div>

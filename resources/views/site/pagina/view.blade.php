@@ -21,6 +21,7 @@ if($pagina->getDocumentos()){
 
 @section('conteudo')
 {{ Breadcrumbs::render('paginaView', $pagina) }}
+    <!--
     <section>
         <div class="container-fluid">
             <div class="row">
@@ -104,7 +105,27 @@ if($pagina->getDocumentos()){
                 </div>
             </div>
         </div>
-    </section>
-    <div class="container"> @include('site.layouts._partials._botaoVoltar')</div>
+    </section>-->
+    <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container about py-5 px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        @if ($imagemCapa)
+                            <img class="position-absolute img-fluid w-100 h-100" src="{{url('/')}}/storage/uploads/pagina/{{$imagemCapa->id}}/{{$imagemCapa->arquivo}}" style="object-fit: cover;" alt="{{$imagemCapa->nome_original}}">
+                        @endif
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                    <h1 class="mb-5">{{$pagina->titulo}}</h1>
+                    <p class="mb-5">
+                        @if($pagina->descricao)
+                            <?=$pagina->descricao?>
+                        @endif
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{ asset('js/slider.js')}}"></script>
 @endsection

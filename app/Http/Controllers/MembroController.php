@@ -55,6 +55,9 @@ class MembroController extends Controller
             $membro->resumo = $request->input('resumo');
             $membro->conselho_id = $request->get('conselho_id');
             $membro->ordem = $request->input('ordem');
+            $membro->descricao = $request->input('descricao');
+            $membro->facebook = $request->input('facebook');
+            $membro->instagram = $request->input('instagram');
             if($request->input('ativo')){
                 $membro->ativo = $request->input('ativo');
             }else{

@@ -17,6 +17,7 @@
             <select name="tipo_posicao" style="width: 100%;">
                     <option> Tipo Posição </option>
                     <option value="cap" @if(isset($banner)){{ ($banner->tipo_posicao ?? old('tipo_posicao')) == $banner->tipo_posicao ? 'selected' : '' }}@endif> Capa </option>
+                    <option value="igr" @if(isset($banner)){{ ($banner->tipo_posicao ?? old('tipo_posicao')) == $banner->tipo_posicao ? 'selected' : '' }}@endif> Conheça Nossa Igreja </option>
             </select>
             {{ $errors->has('tipo_posicao') ? $errors->first('tipo_posicao') : '' }}
         </div>

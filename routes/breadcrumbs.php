@@ -13,6 +13,30 @@ Breadcrumbs::for('contato', function (BreadcrumbTrail $trail) {
     $trail->push('Fale Conosco', route('site.contato'));
 });
 
+//Home > Sobre IPSS
+Breadcrumbs::for('sobre-ipss', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Nossa História', route('site.sobre-ipss'));
+});
+
+//Home > Sobre IPB
+Breadcrumbs::for('sobre-ipb', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('História da IPB', route('site.sobre-ipb'));
+});
+
+//Home > Protestantismo
+Breadcrumbs::for('protestantismo', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Protestantismo', route('site.protestantismo'));
+});
+
+//Home > Doutrina
+Breadcrumbs::for('doutrina', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Doutrina', route('site.doutrina'));
+});
+
 //Home > Fale conosco
 Breadcrumbs::for('agenda', function (BreadcrumbTrail $trail) {
     $trail->parent('site');
@@ -47,6 +71,18 @@ Breadcrumbs::for('foto', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('fotoView', function (BreadcrumbTrail $trail, $foto) {
     $trail->parent('foto');
     $trail->push($foto->titulo, route('site.foto.view', $foto));
+});
+
+//Home > Noticias
+Breadcrumbs::for('noticia', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Notícias', route('site.noticia'));
+});
+
+// Home > Foto > [Foto]
+Breadcrumbs::for('noticiaView', function (BreadcrumbTrail $trail, $noticia) {
+    $trail->parent('noticia');
+    $trail->push($noticia->titulo, route('site.noticia.view', $noticia));
 });
 
 // Home > Pagina > [Pagina]

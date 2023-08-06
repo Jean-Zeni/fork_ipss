@@ -11,56 +11,38 @@ if(count($foto->arquivos) != 0){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 
 @section('conteudo')
-{{ Breadcrumbs::render('fotoView', $foto) }}
-    <section>
-        <div class="container">
-            <div class="row">
-                <div id="conteudo_view" class="col">
-                    <h3><strong>{{$foto->titulo}}</strong></h3><hr />
-                    <div class="row">
-                    </div>
-                    @if ($foto->credito)
-                        <strong>Crédito: </strong>{{$foto->credito}}<br />
-                    @endif
-                    @if ($foto->data_publicacao)
-                        <strong>Data de Publicação: </strong>{{$foto->data_publicacao->format('d/m/Y')}}<br />
-                    @endif
-                    @if ($foto->descricao)
-                        <?=$foto->descricao?>
-                    @endif
+    {{ Breadcrumbs::render('fotoView', $foto) }}
+    <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container about py-5 px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-lg-7 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
                     @if ($fotos)
-                        <br />
-                        <div class="row">
-                            <div class="col-12">
-                                @foreach ($fotos as $arquivo)
-                                    <div class="mySlides">
-                                        <img src="{{url('/')}}/storage/uploads/foto/{{$arquivo->id}}/{{$arquivo->arquivo}}"  width="100%" alt="{{$arquivo->nome_original}}" title="{{$foto->nome_original}}"> 
-                                        @if ($arquivo->legenda)
-                                            <span>{{$arquivo->legenda}}</span>
-                                        @endif 
-                                    </div>  
-                                @endforeach
-                                <div class="row nomargin">
-                                    <div id="fotos" class="col-12">
-                                        <ul>    
-                                            @foreach ($fotos as $key=>$arquivo)
-                                                <li><img class="demo cursor" src="{{url('/')}}/storage/uploads/foto/{{$arquivo->id}}/{{$arquivo->arquivo}}" style="width:100%; height:75px;" onclick="currentSlide(<?=$key+1?>)" alt="<?=$arquivo->nome_original?>"></li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn-Padrao" id="tras"><</button>
-                                        <button class="btn-Padrao" id="frente">></button>
-                                    </div>
+                        <div class="owl-carousel header-carousel position-relative mb-5">
+                            @foreach ($fotos as $arquivo)
+                                <div class="owl-carousel-item position-relative">
+                                    <img class="img-fluid" src="{{url('/')}}/storage/uploads/foto/{{$arquivo->id}}/{{$arquivo->arquivo}}" alt="{{$arquivo->nome_original}}">
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     @endif
-                    <br>
+                </div>
+                <div class="col-lg-5 about-text wow fadeInUp" data-wow-delay="0.3s">
+                    <h1 class="mb-5">{{$foto->titulo}}</h1>
+                    <p class="mb-5">
+                        @if ($foto->credito)
+                            <strong>Crédito: </strong>{{$foto->credito}}<br />
+                        @endif
+                        @if ($foto->data_publicacao)
+                            <strong>Data de Publicação: </strong> {{$foto->data_publicacao->format('d/m/Y')}}<br>
+                        @endif
+                    </p>
+                    <p class="mb-5">
+                        @if ($foto->descricao)
+                            <?=$foto->descricao?>
+                        @endif
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="container"> @include('site.layouts._partials._botaoVoltar')</div>
-    <script src="{{ asset('js/slider.js')}}"></script>
+    </div>
 @endsection

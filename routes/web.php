@@ -19,6 +19,22 @@ Route::get('/', function () {
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'site'])->name('site.index');
 
+Route::get('/protestantismo', function(){
+    return view('site.paginas.protestantismo');
+})->name('site.protestantismo');
+
+Route::get('/sobre-ipss', function(){
+    return view('site.paginas.sobre-ipss');
+})->name('site.sobre-ipss');
+
+Route::get('/sobre-ipb', function(){
+    return view('site.paginas.sobre-ipb');
+})->name('site.sobre-ipb');
+
+Route::get('/doutrina', function(){
+    return view('site.paginas.doutrina');
+})->name('site.doutrina');
+
 Route::get('/contato', [\App\Http\Controllers\SiteContatoController::class, 'index'])->name('site.contato');
 
 Route::get('/contato-evangelismo', [\App\Http\Controllers\SiteContatoController::class, 'evangelismo'])->name('site.contato.evangelismo');
@@ -30,6 +46,10 @@ Route::post('/contato/save-contato-evangelismo', [\App\Http\Controllers\SiteCont
 Route::get('/video', [\App\Http\Controllers\SiteVideoController::class, 'index'])->name('site.video');
 
 Route::get('/video/{id}/{nome?}', [\App\Http\Controllers\SiteVideoController::class, 'view'])->name('site.video.view');
+
+Route::get('/noticia', [\App\Http\Controllers\SiteNoticiaController::class, 'index'])->name('site.noticia');
+
+Route::get('/noticia/{id}/{nome?}', [\App\Http\Controllers\SiteNoticiaController::class, 'view'])->name('site.noticia.view');
 
 Route::get('/foto', [\App\Http\Controllers\SiteFotoController::class, 'index'])->name('site.foto');
 
@@ -68,6 +88,9 @@ Route::middleware([
 
     //videos
     Route::resource('video', \App\Http\Controllers\VideoController::class);
+
+    //noticias
+    Route::resource('noticia', \App\Http\Controllers\NoticiaController::class);
 
     //contato
     Route::resource('contato', \App\Http\Controllers\ContatoController::class);
