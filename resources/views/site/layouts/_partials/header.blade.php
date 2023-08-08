@@ -30,10 +30,10 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sociedades Internas</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="price.html" class="dropdown-item">UPH</a>
-                    <a href="feature.html" class="dropdown-item">UPA</a>
-                    <a href="quote.html" class="dropdown-item">UMP</a>
-                    <a href="team.html" class="dropdown-item">SAF</a>
+                    <a href="/ipss/5/uph" class="dropdown-item">UPH</a>
+                    <a href="/ipss/7/upa" class="dropdown-item">UPA</a>
+                    <a href="/ipss/8/ump" class="dropdown-item">UMP</a>
+                    <a href="/ipss/6/saf" class="dropdown-item">SAF</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
