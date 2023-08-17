@@ -1,3 +1,9 @@
+<?php 
+use App\Models\Configuracao;
+
+$config = Configuracao::getConfig();
+?>
+
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
     <div class="container py-5">
@@ -8,10 +14,21 @@
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(51) 98215-3223</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>ipss@ipsapucaiadosul.com.br</p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    @if($config->instagram)
+                        <a class="btn btn-outline-light btn-social" href="{{$config->instagram}}"><i class="fab fa-instagram"></i></a>
+                    @endif
+                    @if($config->facebook)
+                        <a class="btn btn-outline-light btn-social" href="{{$config->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                    @endif
+                    @if($config->youtube)
+                        <a class="btn btn-outline-light btn-social" href="{{$config->youtube}}"><i class="fab fa-youtube"></i></a>
+                    @endif
+                    @if($config->spotify)
+                        <a class="btn btn-outline-light btn-social" href="{{$config->spotify}}"><i class="fab fa-spotify"></i></a>
+                    @endif
+                    @if($config->twitter)
+                        <a class="btn btn-outline-light btn-social" href="{{$config->twitter}}"><i class="fab fa-twitter"></i></a>
+                    @endif
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">

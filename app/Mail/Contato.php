@@ -33,7 +33,7 @@ class Contato extends Mailable
     {
         return new Envelope(
             subject: '[Igreja Presbiteriana de Sapucaia do Sul] '.$this->contato->nome,
-            to: [$this->contato->email, 'giordani.santos.silveira@gmail.com'],
+            to: [$this->contato->email, 'giordani.santos.silveira@gmail.com', 'everton100177@gmail.com'],
             replyTo: [
                 $this->contato->email,
             ],
