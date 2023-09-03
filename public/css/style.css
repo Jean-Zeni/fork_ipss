@@ -417,6 +417,9 @@
     }
 }
 
+.fa{
+    font-size: 18px !important;
+}
 
 /*** Footer ***/
 .footer {

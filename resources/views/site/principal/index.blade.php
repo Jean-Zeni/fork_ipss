@@ -53,7 +53,7 @@ $config = Configuracao::getConfig();
                 </div>
                 <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
                     <h1 class="mb-5">Conheça nossa Igreja</h1>
-                    <p class="mb-5">Local onde se prega a Palavra de Deus com fidelidade e sinceridade. Venha nos visitar!</p>
+                    <p class="mb-5">Local onde se prega a Palavra de Deus com fidelidade e sinceridade. Estamos localizados na Rua São Luiz, número 188 - Centro de Sapucaia do Sul - RS, Venha nos visitar!</p>
                     <div class="row g-4 mb-5">
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
                             <i class="fa-solid fa-book-bible fa-3x text-primary mb-3"></i>
