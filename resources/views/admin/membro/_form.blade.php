@@ -51,7 +51,7 @@
     <div class="row">
         <div class="col-12">
             <p><label>Descrição:</label></p>
-            <textarea class="descricao" name="descricao" placeholder="Descrição" style="width: 100% !important;">{{ $noticia->descricao ?? old('descricao') }}</textarea>
+            <textarea class="descricao" name="descricao" placeholder="Descrição" style="width: 100% !important;">{{ $membro->descricao ?? old('descricao') }}</textarea>
             <script src="https://cdn.tiny.cloud/1/tscpebe2xv4vkktpkkorh3wcc0q4xctf2b7cuihi9z6f4j9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
             {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
         </div>

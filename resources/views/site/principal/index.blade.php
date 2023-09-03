@@ -148,10 +148,10 @@ $config = Configuracao::getConfig();
                 <div class="testimonial-item p-4 my-5">
                     <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
                     <div class="d-flex align-items-end mb-4">
-                        <img class="img-fluid flex-shrink-0" src="images/testimonial-3.jpg" style="width: 80px; height: 80px;">
+                        <img class="img-fluid flex-shrink-0" src="images/pastor.jpg" style="width: 80px; height: 80px;">
                         <div class="ms-4">
-                            <h5 class="mb-1">Client Name</h5>
-                            <p class="m-0">Profession</p>
+                            <h5 class="mb-1">Éverton</h5>
+                            <p class="m-0">Pastor</p>
                         </div>
                     </div>
                     <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
@@ -159,10 +159,10 @@ $config = Configuracao::getConfig();
                 <div class="testimonial-item p-4 my-5">
                     <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
                     <div class="d-flex align-items-end mb-4">
-                        <img class="img-fluid flex-shrink-0" src="images/testimonial-4.jpg" style="width: 80px; height: 80px;">
+                        <img class="img-fluid flex-shrink-0" src="images/pastor.jpg" style="width: 80px; height: 80px;">
                         <div class="ms-4">
-                            <h5 class="mb-1">Client Name</h5>
-                            <p class="m-0">Profession</p>
+                            <h5 class="mb-1">Éverton</h5>
+                            <p class="m-0">Pastor</p>
                         </div>
                     </div>
                     <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
