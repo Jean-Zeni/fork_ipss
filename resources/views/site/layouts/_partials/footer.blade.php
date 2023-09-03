@@ -43,7 +43,7 @@ $config = Configuracao::getConfig();
                 <h4 class="text-light mb-4">Links Rápidos</h4>
                 <a class="btn btn-link" href="/sobre-ipss">Sobre nós</a>
                 <a class="btn btn-link" href="/contato">Fale Conosco</a>
-                <a class="btn btn-link" href="/pastor">Pastor</a>
+                <a class="btn btn-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-membro-1">Pastor</a>
                 <a class="btn btn-link" href="/conselho/1">Conselho</a>
                 <a class="btn btn-link" href="/noticia">Noticias</a>
             </div>

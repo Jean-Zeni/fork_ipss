@@ -49,13 +49,14 @@
                                 <div class="btn-slide mt-1">
                                     <i class="fa fa-share"></i>
                                     <span>
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a href=""><i class="fab fa-twitter"></i></a>
-                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-membro-{{$membro->id}}"><i class="fab fa-plus"></i></a>
+                                        <a href="{{$membro->facebook ? $membro->facebook : '#'}}"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="{{$membro->instagram ? $membro->instagram : '#'}}"><i class="fab fa-instagram"></i></a>
                                     </span>
                                 </div>
                             </div>
                         </div>
+                        @include('site.principal._components._modal_membro' , ['membro' => $membro])
                     @endforeach
                 @endif
             </div>

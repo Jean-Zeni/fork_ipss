@@ -612,3 +612,12 @@
     top: 0;
     left: -20px;
   }
+
+.modal-header{
+    justify-content: center;
+    background-color: #015b41;
+}
+
+.modal-title{
+    color: #fff;
+}

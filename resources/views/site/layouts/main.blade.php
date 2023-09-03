@@ -1,7 +1,9 @@
 <?php
 use App\Models\Configuracao;
+use App\Models\Membro;
 
 $config = Configuracao::getConfig();
+$pastor = Membro::find(1);
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,7 @@ $config = Configuracao::getConfig();
             <div class="btn-whatsapp pulsaDelay"><i class="fab fa-whatsapp"></i></div>
         </a>
         <!--Botão whatsapp-->
-
+        @include('site.principal._components._modal_membro' , ['membro' => $pastor])
         @stack('scripts')
     </body>
 </html>

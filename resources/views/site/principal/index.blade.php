@@ -213,7 +213,7 @@ $config = Configuracao::getConfig();
                                 <div class="btn-slide mt-1">
                                     <i class="fa fa-share"></i>
                                     <span>
-                                        <a href="javascript:;" data-toggle="modal" data-target="#modal-membro-{{$membro->id}}"><i class="fab fa-plus"></i></a>
+                                        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-membro-{{$membro->id}}"><i class="fab fa-plus"></i></a>
                                         <a href="{{$membro->facebook ? $membro->facebook : '#'}}"><i class="fab fa-facebook-f"></i></a>
                                         <a href="{{$membro->instagram ? $membro->instagram : '#'}}"><i class="fab fa-instagram"></i></a>
                                     </span>

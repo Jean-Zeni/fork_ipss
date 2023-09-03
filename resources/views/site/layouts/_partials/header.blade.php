@@ -48,7 +48,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Liderança</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="/conselho/1" class="dropdown-item">Conselho</a>
-                    <a href="/pastor" class="dropdown-item">Pastor</a>
+                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-membro-1" class="dropdown-item">Pastor</a>
                 </div>
             </div>
             <a href="/agenda" class="nav-item nav-link">Agenda</a>
