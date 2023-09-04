@@ -11,7 +11,6 @@ class SiteNoticiaController extends Controller
 
         $query = Noticia::query();
         $query->orderBy('data_publicacao','desc');
-        $query->where('destaque',1);
         $query->where('ativo',1);
         if ($request->has('termo')) {
             $query->where('titulo', 'LIKE', '%' . $request->termo . '%');
