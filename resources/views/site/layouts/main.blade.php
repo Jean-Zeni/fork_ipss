@@ -14,7 +14,7 @@ $pastor = Membro::find(1);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" type="image/png" href="{{url('/')}}/favicon.ico">
-        <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js) original(antigo)-->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXY74ZQNPT"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -22,6 +22,16 @@ $pastor = Membro::find(1);
             gtag('js', new Date());
 
             gtag('config', 'G-KXY74ZQNPT');
+        </script>
+
+        <!-- Google tag (gtag.js) TESTE PARA INFOS GOOGLE ANALYTICS -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-298062990-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-298062990-1');
         </script>
           @stack('styles') 
 
