@@ -23,17 +23,7 @@ $pastor = Membro::find(1);
 
             gtag('config', 'G-KXY74ZQNPT');
         </script>
-
-        <!-- Google tag (gtag.js) TESTE PARA INFOS GOOGLE ANALYTICS -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-298062990-1"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-298062990-1');
-        </script>
-          @stack('styles') 
+        @stack('styles') 
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,11 +1,3 @@
-<?php
-use Spatie\Analytics\AnalyticsFacade as Analytics;
-use Spatie\Analytics\Period;
-
-$analyticsData = Analytics::fetchVisitorsAndPageViews(Period::months(6));
-//dd($analyticsData);
-?>
-
 @section('titulo', 'Igreja Presbiteriana de Sapucaia do Sul | Administrativo')
 
 <x-app-layout>
