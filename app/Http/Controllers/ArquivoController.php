@@ -87,15 +87,19 @@ class ArquivoController extends Controller
 
     public function excluir($id, String $tabela){
         $arquivo = Arquivo::find($id);
-        if(Storage::exists("/uploads/{$tabela}/{$arquivo->id}/{$arquivo->arquivo}")){
-            if(unlink(public_path('/storage/uploads/'.$tabela.'/'.$arquivo->id.'/'.$arquivo->arquivo))){
-                rmdir(public_path('/storage/uploads/'.$tabela.'/'.$arquivo->id));
-            }
-        }else{
-            alert()->error('ErrorAlert','Arquivo não existe.');
-        }
         $arquivo->delete();
+        if(!Storage::exists("/uploads/{$tabela}/{$arquivo->id}/{$arquivo->arquivo}")){
+            alert()->error('ErrorAlert','Arquivo não existe.');
+            return redirect()->back();
+        }
+        $this->removerArquivoDaPasta($tabela, $arquivo);
         alert()->success('Concluído','Arquivo removido com sucesso.');
         return redirect()->back();
+    }
+
+    public function removerArquivoDaPasta($tabela, $arquivo){
+        if(unlink(public_path('/storage/uploads/'.$tabela.'/'.$arquivo->id.'/'.$arquivo->arquivo))){
+            rmdir(public_path('/storage/uploads/'.$tabela.'/'.$arquivo->id));
+        }
     }
 }
