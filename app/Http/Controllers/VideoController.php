@@ -37,30 +37,11 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //inclusao
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Video::rules(), Video::feedback());
-            $video = new Video();
-            //vai preencher o objeto de acordo com o request
-            $video->titulo = $request->input('titulo');
-            $video->data_publicacao = $request->input('data_publicacao');
-            $video->resumo = $request->input('resumo');
-            $video->descricao = $request->input('descricao');
-            $video->link = $request->input('link');
-            if($request->input('destaque')){
-                $video->destaque = $request->input('destaque');
-            }else{
-                $video->destaque = 0;
-            }
-            if($request->input('devocional')){
-                $video->devocional = $request->input('devocional');
-            }else{
-                $video->devocional = 0;
-            }
-            if($video->save()){
-                alert()->success('Concluído','Registro adicionado com sucesso.');
-            }
+        $request->validate(Video::rules(), Video::feedback());
+        $video = new Video();
+        $videoCriado = $video->create($request->all());
+        if($videoCriado){
+            alert()->success('Concluído','Registro adicionado com sucesso.');
         }
         return redirect()->route('video.index');
     }
@@ -96,22 +77,9 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-         //inclusao
-         if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Video::rules(), Video::feedback());
-            if($request->has('destaque') == null){
-                $video->destaque = 0;
-            }
-            if($request->has('devocional') == null){
-                $video->devocional = 0;
-            }
-            //vai preencher o objeto de acordo com a variavel fillable no model
-            if($video->update($request->all())){
-                alert()->success('Concluído','Registro atualizado com sucesso.');
-            }else{
-                alert()->error('ErrorAlert','Erro na atualização do registro.');
-            }
+        $request->validate(Video::rules(), Video::feedback());
+        if($video->update($request->all())){
+            alert()->success('Concluído','Registro atualizado com sucesso.');
         }
         return redirect()->route('video.show', ['video' => $video->id]);
     }
@@ -126,12 +94,10 @@ class VideoController extends Controller
     {
         if($video->delete()){
             alert()->success('Concluído','Registro removido com sucesso.');
-        }else{
-             // Em caso de falhas redireciona o usuário de volta e informa que não foi possível deletar
-            return redirect()->back();
-            alert()->error('ErrorAlert','Não foi possível deletar.');
+            return redirect()->route('video.index');
         }
-
-        return redirect()->route('video.index');
+        return redirect()->back();
+        alert()->error('ErrorAlert','Não foi possível deletar.');
+       
     }
 }
