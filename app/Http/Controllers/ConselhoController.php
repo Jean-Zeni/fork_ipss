@@ -40,61 +40,18 @@ class ConselhoController extends Controller
      */
     public function store(Request $request)
     {
-        //inclusao
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Conselho::rules(), Conselho::feedback());
-            $conselho = new Conselho();
-            $conselho->nome = $request->input('nome');
-            $conselho->descricao = $request->input('descricao');
-            if($request->input('ativo')){
-                $conselho->ativo = $request->input('ativo');
-            }else{
-                $conselho->ativo = 0;
-            }
-            if($conselho->save()){
-                alert()->success('Concluído','Registro adicionado com sucesso.');
-            }
-            $table = 'conselho';
-            // Define o valor default para a variável que contém o nome da imagem 
-            $nameFile = null;
-            $arquivo = new Arquivo();
-            
-        
-            // Verifica se informou o arquivo e se é válido
-            if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
-            
-                // Define um aleatório para o arquivo baseado no timestamps atual
-                $name = uniqid(date('HisYmd'));
-        
-                // Recupera a extensão do arquivo
-                $extension = $request->arquivo->extension();
-        
-                // Define finalmente o nome
-                $nameFile = "{$name}.{$extension}";
-
-                $arquivo->arquivo = $nameFile;
-                $arquivo->tamanho = $request->arquivo->getSize();
-                $arquivo->tipo_mime = $request->arquivo->getMimeType();
-                $arquivo->nome_original = $request->arquivo->getClientOriginalName();
-                $arquivo->posicao = 1;
-                $arquivo->tipo = 'I';
-                $arquivo->conselho_id = $conselho->id;
-                $arquivo->save();
-                
-                $uploadPath = "uploads/".$table."/".$arquivo->id;
-                // Faz o upload:
-                $upload = $request->arquivo->storeAs($uploadPath, $nameFile);
-                // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-        
-                // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                if ( !$upload ){
-                    return redirect()->back();
-                    alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                }
-            }
-
+   
+        $request->validate(Conselho::rules(), Conselho::feedback());
+        $conselho = new Conselho();
+        $conselhoCriado = $conselho->create($request->all());
+        if($conselhoCriado){
+            alert()->success('Concluído','Registro adicionado com sucesso.');
         }
+        $arquivo = new Arquivo();
+        if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
+            $arquivo->salvarArquivo($request, $conselhoCriado, 'conselho', 'I');
+        }
+
         return redirect()->route('conselho.index');
     }
 
@@ -129,96 +86,16 @@ class ConselhoController extends Controller
      */
     public function update(Request $request, Conselho $conselho)
     {
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            
-            $request->validate(Conselho::rules(), Conselho::feedback());
+        $request->validate(Conselho::rules(), Conselho::feedback());
 
-            $table = 'conselho';
-                // Define o valor default para a variável que contém o nome da imagem 
-            $nameFile = null;
-        
-            // Verifica se informou o arquivo e se é válido
-            if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
-                //se o conselho tiver arquivo
-                if($conselho->arquivo){
-                    //remover aquivo do $conselho->arquivo da pasta uploads
-                    if(Storage::exists("/uploads/conselho/{$conselho->arquivo->id}/{$conselho->arquivo->arquivo}")){
-                        Storage::delete("/uploads/conselho/{$conselho->arquivo->id}/{$conselho->arquivo->arquivo}");
-                    }else{
-                        alert()->error('ErrorAlert','Arquivo não existe.');
-                    }
-                    //setar o arquivo do $conselho->arquivo com a $request
-                    // Define nome um aleatório para o arquivo baseado no timestamps atual
-                    $name = uniqid(date('HisYmd'));
-            
-                    // Recupera a extensão do arquivo
-                    $extension = $request->arquivo->extension();
-            
-                    // Define finalmente o nome
-                    $nameFile = "{$name}.{$extension}";
-
-                    $conselho->arquivo->arquivo = $nameFile;
-                    $conselho->arquivo->tamanho = $request->arquivo->getSize();
-                    $conselho->arquivo->tipo_mime = $request->arquivo->getMimeType();
-                    $conselho->arquivo->nome_original = $request->arquivo->getClientOriginalName();
-                    $conselho->arquivo->posicao = 1;
-                    $conselho->arquivo->tipo = 'I';
-                    
-                    $conselho->arquivo->update();
-                    
-                    $uploadPath = "uploads/".$table."/".$conselho->arquivo->id;
-                    // Faz o upload:
-                    $upload = $request->arquivo->storeAs($uploadPath, $nameFile);
-            
-                    // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                    if ( !$upload ){
-                        alert()->error('ErrorAlert','Não foi possível fazer o upload de arquivo.');
-                        return redirect()->back();
-                    }
-                }else{
-                    $arquivo = new Arquivo();
-                    // Define um aleatório para o arquivo baseado no timestamps atual
-                    $name = uniqid(date('HisYmd'));
-            
-                    // Recupera a extensão do arquivo
-                    $extension = $request->arquivo->extension();
-            
-                    // Define finalmente o nome
-                    $nameFile = "{$name}.{$extension}";
-
-                    $arquivo->arquivo = $nameFile;
-                    $arquivo->tamanho = $request->arquivo->getSize();
-                    $arquivo->tipo_mime = $request->arquivo->getMimeType();
-                    $arquivo->nome_original = $request->arquivo->getClientOriginalName();
-                    $arquivo->posicao = 1;
-                    $arquivo->tipo = 'I';
-                    $arquivo->conselho_id = $conselho->id;
-                    $arquivo->save();
-                    
-                    $uploadPath = "uploads/".$table."/".$arquivo->id;
-                    // Faz o upload:
-                    $upload = $request->arquivo->storeAs($uploadPath, $nameFile);
-                    // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-            
-                    // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                    if ( !$upload ){
-                        return redirect()->back();
-                        alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                    }
-                }
-            }
-            
-            if($request->has('ativo') == null){
-                $conselho->ativo = 0;
-            }
-            //vai preencher o objeto de acordo com a variavel fillable no model
-            if($conselho->update($request->all())){
-                alert()->success('Concluído','Registro atualizado com sucesso.');
-            }else{
-                alert()->error('ErrorAlert','Erro na atualização do registro.');
-            }
+        $arquivo = new Arquivo();
+    
+        if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
+            $arquivo->salvarArquivo($request, $conselho, 'conselho', 'I');
         }
         
+        $conselho->update($request->all());
+        alert()->success('Concluído','Registro atualizado com sucesso.');
         return redirect()->route('conselho.show', ['conselho' => $conselho->id]);
     }
 
@@ -231,23 +108,12 @@ class ConselhoController extends Controller
     public function destroy(Conselho $conselho)
     {
         if($conselho->arquivo){
-            if(Storage::exists("/uploads/conselho/{$conselho->arquivo->id}/{$conselho->arquivo->arquivo}")){
-                if(unlink(public_path('/storage/uploads/conselho/'.$conselho->arquivo->id.'/'.$conselho->arquivo->arquivo))){
-                    rmdir(public_path('/storage/uploads/conselho/'.$conselho->arquivo->id));
-                }
-            }else{
-                alert()->error('ErrorAlert','Arquivo não existe.');
-            }
+            $conselho->arquivo->excluirPastaArquivo('conselho');
             $conselho->arquivo->delete();
             $conselho->delete();
-        }else if(!$conselho->arquivo){
-            $conselho->delete();
-        }else{
-             // Em caso de falhas redireciona o usuário de volta e informa que não foi possível deletar
-            return redirect()->back();
-            alert()->error('ErrorAlert','Não foi possível deletar.');
         }
-
+            
+        $conselho->delete();
         alert()->success('Concluído','Registro removido com sucesso.');
         return redirect()->route('conselho.index');
     }

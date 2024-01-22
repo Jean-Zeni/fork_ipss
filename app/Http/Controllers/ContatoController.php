@@ -37,23 +37,17 @@ class ContatoController extends Controller
      */
     public function store(Request $request)
     {
-        //inclusao
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Contato::rules(), Contato::feedback());
-
-            $contato = new Contato();
-            //vai preencher o objeto de acordo com o request
-            $contato->nome = $request->input('nome');
-            $contato->email = $request->input('email');
-            $contato->telefone = $request->input('telefone');
-            $contato->mensagem = $request->input('mensagem');
-            $contato->status = Contato::STATUS_ABERTO;
-            $contato->tipo = Contato::TIPO_CONTATO;
-            $contato->ativo = 1;
-            if($contato->save()){
-                alert()->success('Concluído','Registro adicionado com sucesso.');
-            }
+        $request->validate(Contato::rules(), Contato::feedback());
+        $contato = new Contato();
+        $contato->nome = $request->input('nome');
+        $contato->email = $request->input('email');
+        $contato->telefone = $request->input('telefone');
+        $contato->mensagem = $request->input('mensagem');
+        $contato->status = Contato::STATUS_ABERTO;
+        $contato->tipo = Contato::TIPO_CONTATO;
+        $contato->ativo = 1;
+        if($contato->save()){
+            alert()->success('Concluído','Registro adicionado com sucesso.');
         }
     }
 
@@ -88,32 +82,27 @@ class ContatoController extends Controller
      */
     public function update(Request $request, Contato $contato)
     {
-         //inclusao
-         if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $regras = [
-                'resposta' => 'required'
-            ];
+        $regras = [
+            'resposta' => 'required'
+        ];
 
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido'
-            ];
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido'
+        ];
 
-
-            $request->validate($regras, $feedback);
-            //vai preencher o objeto de acordo com o request
-            $contato->resposta = $request->input('resposta');
-            $contato->status = $request->input('status');
-            $contato->data_resposta = new \DateTime();
-            $contato->status = $request->input('status');
-            $contato->tipo = Contato::TIPO_CONTATO;
-            $contato->ativo = 1;
-            if($contato->update()){
-                \Illuminate\Support\Facades\Mail::send(new \App\Mail\Contato($contato));
-                alert()->success('Concluído','Registro atualizado com sucesso.');
-                return redirect()->route('contato.show', ['contato' => $contato->id]);
-            }
+        $request->validate($regras, $feedback);
+        $contato->resposta = $request->input('resposta');
+        $contato->status = $request->input('status');
+        $contato->data_resposta = new \DateTime();
+        $contato->status = $request->input('status');
+        $contato->tipo = Contato::TIPO_CONTATO;
+        $contato->ativo = 1;
+        if($contato->update()){
+            \Illuminate\Support\Facades\Mail::send(new \App\Mail\Contato($contato));
+            alert()->success('Concluído','Registro atualizado com sucesso.');
+            return redirect()->route('contato.show', ['contato' => $contato->id]);
         }
+        
     }
 
     /**
@@ -126,12 +115,9 @@ class ContatoController extends Controller
     {
         if($contato->delete()){
             alert()->success('Concluído','Registro removido com sucesso.');
-        }else{
-             // Em caso de falhas redireciona o usuário de volta e informa que não foi possível deletar
-            return redirect()->back();
-            alert()->error('ErrorAlert','Não foi possível deletar.');
+            return redirect()->route('contato.index');
         }
-
-        return redirect()->route('contato.index');
+        alert()->error('ErrorAlert','Não foi possível deletar.');
+        return redirect()->back();
     }
 }

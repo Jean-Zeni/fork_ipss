@@ -38,15 +38,11 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-         //inclusao
-         if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Evento::rules(), Evento::feedback());
-            $evento = new Evento();
-           
-            if($evento->create($request->all())){
-                alert()->success('Concluído','Registro adicionado com sucesso.');
-            }
+        $request->validate(Evento::rules(), Evento::feedback());
+        $evento = new Evento();
+        
+        if($evento->create($request->all())){
+            alert()->success('Concluído','Registro adicionado com sucesso.');
         }
         return redirect()->route('evento.index');
     }
@@ -82,15 +78,12 @@ class EventoController extends Controller
      */
     public function update(Request $request, Evento $evento)
     {
-        //inclusao
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Evento::rules(), Evento::feedback());
-           
-            if($evento->update($request->all())){
-                alert()->success('Concluído','Registro atualizado com sucesso.');
-            }
+        $request->validate(Evento::rules(), Evento::feedback());
+        
+        if($evento->update($request->all())){
+            alert()->success('Concluído','Registro atualizado com sucesso.');
         }
+        
         return redirect()->route('evento.index');
     }
 
@@ -105,9 +98,8 @@ class EventoController extends Controller
         if($evento->delete()){
             alert()->success('Concluído','Registro removido com sucesso.');
             return redirect()->route('evento.index');
-        }else{
-            alert()->error('ErrorAlert','Não foi possível deletar.');
-            return redirect()->route('evento.index');
         }
+        alert()->error('ErrorAlert','Não foi possível deletar.');
+        return redirect()->route('evento.index');
     }
 }
