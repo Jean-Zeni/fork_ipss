@@ -40,72 +40,16 @@ class PaginaController extends Controller
      */
     public function store(Request $request)
     {
-           //inclusao
-           if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Pagina::rules(), Pagina::feedback());
-            $pagina = new Pagina();
-            $pagina->titulo = $request->input('titulo');
-            $pagina->resumo = $request->input('resumo');
-            $pagina->descricao = $request->input('descricao');
-            $pagina->link_youtube = $request->input('link_youtube');
-            if($request->input('ativo')){
-                $pagina->ativo = $request->input('ativo');
-            }else{
-                $pagina->ativo = 0;
-            }
-            if($pagina->save()){
-                alert()->success('Concluído','Registro adicionado com sucesso.');
-            }
-            $table = 'pagina';
-            // Define o valor default para a variável que contém o nome da imagem 
-            $nameFile = null;
-            
-            // Verifica se informou o arquivo e se é válido
-            if($request->hasFile('arquivos')){
-                for($i = 0; $i < count($request->allFiles()['arquivos']); $i++){
-                    if ($request->allFiles()['arquivos'][$i]->isValid()) {
-                        $arquivo = new Arquivo();
-                        // Define um aleatório para o arquivo baseado no timestamps atual
-                        
-                        $name = uniqid(date('HisYmd'));
-                        // Recupera a extensão do arquivo
-                        $extension = $request->allFiles()['arquivos'][$i]->extension();
-                
-                        // Define finalmente o nome
-                        $nameFile = "{$name}.{$extension}";
-        
-                        $arquivo->arquivo = $nameFile;
-                        $arquivo->tamanho = $request->allFiles()['arquivos'][$i]->getSize();
-                        $arquivo->tipo_mime = $request->allFiles()['arquivos'][$i]->getMimeType();
-                        $arquivo->nome_original = $request->allFiles()['arquivos'][$i]->getClientOriginalName();
-                        if($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "txt" || $extension == "ppt" || $extension == "pptx" || 
-                        $extension == "odt" || $extension == "xls" || $extension == "xlsx" || $extension == "rar" || $extension == "zip"){
-                            $arquivo->tipo = Arquivo::TIPO_DOCUMENTO;
-                        }else{
-                            $arquivo->tipo = Arquivo::TIPO_IMAGEM;
-                        }
-                        $arquivo->pagina_id = $pagina->id;
-                        $arquivo->save();
-                        
-                        $uploadPath = "uploads/".$table."/".$arquivo->id;
-                        // Faz o upload:
-                        $upload = $request->allFiles()['arquivos'][$i]->storeAs($uploadPath, $nameFile);
-                        // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-                
-                        // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                        if ( !$upload ){
-                            return redirect()->back();
-                            alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                        }
-                        $nameFile = null;
-                        unset($arquivo);
-                        
-                    }
-                }
-            }
-
+        $request->validate(Pagina::rules(), Pagina::feedback());
+        $pagina = new Pagina();
+        $paginaCriado = $pagina->create($request->all());
+        if($paginaCriado){
+            alert()->success('Concluído','Registro adicionado com sucesso.');
         }
+        if($request->hasFile('arquivos')){
+            Arquivo::salvarArquivos($request, 'arquivos', $paginaCriado, 'pagina');
+        }
+        
         return redirect()->route('pagina.index');
     }
 
@@ -140,68 +84,14 @@ class PaginaController extends Controller
      */
     public function update(Request $request, Pagina $pagina)
     {
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            $request->validate(Pagina::rules(), Pagina::feedback());
-        
-            // Verifica se informou o arquivo e se é válido
-            $table = 'pagina';
-            // Define o valor default para a variável que contém o nome da imagem 
-            $nameFile = null;
-
-            // Verifica se informou o arquivo e se é válido
-            if($request->hasFile('arquivos')){
-                for($i = 0; $i < count($request->allFiles()['arquivos']); $i++){
-                    if ($request->allFiles()['arquivos'][$i]->isValid()) {
-                        $arquivo = new Arquivo();
-                        // Define um aleatório para o arquivo baseado no timestamps atual
-                        
-                        $name = uniqid(date('HisYmd'));
-                        // Recupera a extensão do arquivo
-                        $extension = $request->allFiles()['arquivos'][$i]->extension();
-                
-                        // Define finalmente o nome
-                        $nameFile = "{$name}.{$extension}";
-        
-                        $arquivo->arquivo = $nameFile;
-                        $arquivo->tamanho = $request->allFiles()['arquivos'][$i]->getSize();
-                        $arquivo->tipo_mime = $request->allFiles()['arquivos'][$i]->getMimeType();
-                        $arquivo->nome_original = $request->allFiles()['arquivos'][$i]->getClientOriginalName();
-                        if($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "txt" || $extension == "ppt" || $extension == "pptx" || 
-                        $extension == "odt" || $extension == "xls" || $extension == "xlsx" || $extension == "rar" || $extension == "zip"){
-                            $arquivo->tipo = Arquivo::TIPO_DOCUMENTO;
-                        }else{
-                            $arquivo->tipo = Arquivo::TIPO_IMAGEM;
-                        }
-                        $arquivo->pagina_id = $pagina->id;
-                        $arquivo->save();
-                        
-                        $uploadPath = "uploads/".$table."/".$arquivo->id;
-                        // Faz o upload:
-                        $upload = $request->allFiles()['arquivos'][$i]->storeAs($uploadPath, $nameFile);
-                        // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-                
-                        // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                        if ( !$upload ){
-                            return redirect()->back();
-                            alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                        }
-                        $nameFile = null;
-                        unset($arquivo);
-                        
-                    }
-                }
-            }
-            
-            if($request->has('ativo') == null){
-                $pagina->ativo = 0;
-            }
-            //vai preencher o objeto de acordo com a variavel fillable no model
-            if($pagina->update($request->all())){
-                alert()->success('Concluído','Registro atualizado com sucesso.');
-            }else{
-                alert()->error('ErrorAlert','Erro na atualização do registro.');
-            }
+        $request->validate(Pagina::rules(), Pagina::feedback());
+         
+        if($request->hasFile('arquivos')){
+            Arquivo::salvarArquivos($request, 'arquivos', $pagina, 'pagina');
         }
+        
+        $pagina->update($request->all());
+        alert()->success('Concluído','Registro atualizado com sucesso.');
         
         return redirect()->route('pagina.show', ['pagina' => $pagina->id]);
     }
@@ -216,24 +106,12 @@ class PaginaController extends Controller
     {
         if($pagina->arquivos){
             foreach($pagina->arquivos as $arquivo){
-                if(Storage::exists("/uploads/pagina/{$arquivo->id}/{$arquivo->arquivo}")){
-                    if(unlink(public_path('/storage/uploads/pagina/'.$arquivo->id.'/'.$arquivo->arquivo))){
-                        rmdir(public_path('/storage/uploads/pagina/'.$arquivo->id));
-                    }
-                }else{
-                    alert()->error('ErrorAlert','Arquivo não existe.');
-                }
+                $arquivo->excluirPastaArquivo('pagina');
                 $arquivo->delete();
-                $pagina->delete();
             }
-        }else if(!$pagina->arquivos){
-            $pagina->delete();
-        }else{
-             // Em caso de falhas redireciona o usuário de volta e informa que não foi possível deletar
-            return redirect()->back();
-            alert()->error('ErrorAlert','Não foi possível deletar.');
         }
-
+        $pagina->delete();
+    
         alert()->success('Concluído','Registro removido com sucesso.');
         return redirect()->route('pagina.index');
     }

@@ -40,72 +40,15 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-          //inclusao
-          if($request->input('_token') != '' && $request->input('id') == ''){
-            //validacao
-            $request->validate(Noticia::rules(), Noticia::feedback());
-            $noticia = new Noticia();
-            $noticia->titulo = $request->input('titulo');
-            $noticia->data_publicacao = $request->input('data_publicacao');
-            $noticia->resumo = $request->input('resumo');
-            $noticia->descricao = $request->input('descricao');
-            $noticia->autor = $request->input('autor');
-            if($request->input('ativo')){
-                $noticia->ativo = $request->input('ativo');
-            }else{
-                $noticia->ativo = 0;
-            }
-            if($request->input('destaque')){
-                $noticia->destaque = $request->input('destaque');
-            }else{
-                $noticia->destaque = 0;
-            }
-            if($noticia->save()){
-                alert()->success('Concluído','Registro adicionado com sucesso.');
-            }
-            $table = 'noticia';
-            // Define o valor default para a variável que contém o nome da imagem 
-            $nameFile = null;
-            
-            // Verifica se informou o arquivo e se é válido
-            if($request->hasFile('images')){
-                for($i = 0; $i < count($request->allFiles()['images']); $i++){
-                    if ($request->allFiles()['images'][$i]->isValid()) {
-                        $arquivo = new Arquivo();
-                        // Define um aleatório para o arquivo baseado no timestamps atual
-                        
-                        $name = uniqid(date('HisYmd'));
-                        // Recupera a extensão do arquivo
-                        $extension = $request->allFiles()['images'][$i]->extension();
-                
-                        // Define finalmente o nome
-                        $nameFile = "{$name}.{$extension}";
-        
-                        $arquivo->arquivo = $nameFile;
-                        $arquivo->tamanho = $request->allFiles()['images'][$i]->getSize();
-                        $arquivo->tipo_mime = $request->allFiles()['images'][$i]->getMimeType();
-                        $arquivo->nome_original = $request->allFiles()['images'][$i]->getClientOriginalName();
-                        $arquivo->tipo = Arquivo::TIPO_IMAGEM;
-                        $arquivo->noticia_id = $noticia->id;
-                        $arquivo->save();
-                        
-                        $uploadPath = "uploads/".$table."/".$arquivo->id;
-                        // Faz o upload:
-                        $upload = $request->allFiles()['images'][$i]->storeAs($uploadPath, $nameFile);
-                        // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-                
-                        // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                        if ( !$upload ){
-                            return redirect()->back();
-                            alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                        }
-                        $nameFile = null;
-                        unset($arquivo);
-                        
-                    }
-                }
-            }
 
+        $request->validate(Noticia::rules(), Noticia::feedback());
+        $noticia = new Noticia();
+        $noticiaCriado = $noticia->create($request->all());
+        if($noticiaCriado){
+            alert()->success('Concluído','Registro adicionado com sucesso.');
+        }
+        if($request->hasFile('images')){
+            Arquivo::salvarArquivos($request, 'images', $noticiaCriado, 'noticia');
         }
         return redirect()->route('noticia.index');
     }
@@ -141,67 +84,14 @@ class NoticiaController extends Controller
      */
     public function update(Request $request, Noticia $noticium)
     {
-        if($request->input('_token') != '' && $request->input('id') == ''){
-            $request->validate(Noticia::rules(), Noticia::feedback());
-        
-            // Verifica se informou o arquivo e se é válido
-            $table = 'noticia';
-            // Define o valor default para a variável que contém o nome da imagem 
-            $nameFile = null;
-
-            // Verifica se informou o arquivo e se é válido
-            if($request->hasFile('images')){
-                for($i = 0; $i < count($request->allFiles()['images']); $i++){
-                    if ($request->allFiles()['images'][$i]->isValid()) {
-                        $arquivo = new Arquivo();
-                        // Define um aleatório para o arquivo baseado no timestamps atual
-                        
-                        $name = uniqid(date('HisYmd'));
-                        // Recupera a extensão do arquivo
-                        $extension = $request->allFiles()['images'][$i]->extension();
-                
-                        // Define finalmente o nome
-                        $nameFile = "{$name}.{$extension}";
-        
-                        $arquivo->arquivo = $nameFile;
-                        $arquivo->tamanho = $request->allFiles()['images'][$i]->getSize();
-                        $arquivo->tipo_mime = $request->allFiles()['images'][$i]->getMimeType();
-                        $arquivo->nome_original = $request->allFiles()['images'][$i]->getClientOriginalName();
-                        $arquivo->tipo = Arquivo::TIPO_IMAGEM;
-                        $arquivo->noticia_id = $noticium->id;
-                        $arquivo->save();
-                        
-                        $uploadPath = "uploads/".$table."/".$arquivo->id;
-                        // Faz o upload:
-                        $upload = $request->allFiles()['images'][$i]->storeAs($uploadPath, $nameFile);
-                        // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-                
-                        // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                        if ( !$upload ){
-                            return redirect()->back();
-                            alert()->error('ErrorAlert','Não foi possível fazer upload do arquivo.');
-                        }
-                        $nameFile = null;
-                        unset($arquivo);
-                        
-                    }
-                }
-            }
-            
-            if($request->has('ativo') == null){
-                $noticium->ativo = 0;
-            }
-            if($request->has('destaque') == null){
-                $noticium->destaque = 0;
-            }
-            //vai preencher o objeto de acordo com a variavel fillable no model
-            if($noticium->update($request->all())){
-                alert()->success('Concluído','Registro atualizado com sucesso.');
-            }else{
-                alert()->error('ErrorAlert','Erro na atualização do registro.');
-            }
+        $request->validate(Noticia::rules(), Noticia::feedback());
+    
+        if($request->hasFile('images')){
+            Arquivo::salvarArquivos($request, 'images', $noticia, 'noticia');
         }
         
+        $noticia->update($request->all());
+        alert()->success('Concluído','Registro atualizado com sucesso.');
         return redirect()->route('noticia.show', ['noticium' => $noticium->id]);
     }
 
@@ -213,28 +103,15 @@ class NoticiaController extends Controller
      */
     public function destroy(Noticia $noticium)
     {
-        if($noticium->arquivos){
-            foreach($noticium->arquivos as $arquivo){
-                if(Storage::exists("/uploads/noticia/{$arquivo->id}/{$arquivo->arquivo}")){
-                    if(unlink(public_path('/storage/uploads/noticia/'.$arquivo->id.'/'.$arquivo->arquivo))){
-                        rmdir(public_path('/storage/uploads/noticia/'.$arquivo->id));
-                    }
-                }else{
-                    alert()->error('ErrorAlert','Arquivo não existe.');
-                }
+        if($noticia->arquivos){
+            foreach($noticia->arquivos as $arquivo){
+                $arquivo->excluirPastaArquivo('noticia');
                 $arquivo->delete();
-                $noticium->delete();
-                alert()->success('Concluído','Registro removido com sucesso.');
             }
-        }else if(!$noticium->arquivos){
-            $noticium->delete();
-            alert()->success('Concluído','Registro removido com sucesso.');
-        }else{
-             // Em caso de falhas redireciona o usuário de volta e informa que não foi possível deletar
-            return redirect()->back();
-            alert()->error('ErrorAlert','Não foi possível deletar.');
         }
+        $noticia->delete();
 
+        alert()->success('Concluído','Registro removido com sucesso.');
         return redirect()->route('noticia.index');
     }
 }

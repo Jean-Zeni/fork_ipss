@@ -73,4 +73,27 @@ class Arquivo extends Model
             rmdir(public_path('/storage/uploads/'.$tabela.'/'.$this->id));
         }   
     }
+
+    public static function salvarArquivos($request, $atributoFiles, $model, $tabela){
+        for($i = 0; $i < count($request->allFiles()[$atributoFiles]); $i++){
+            $arquivo = new Arquivo();
+            $name = uniqid(date('HisYmd'));
+            $extension = $request->allFiles()[$atributoFiles][$i]->extension();
+            $nameFile = "{$name}.{$extension}";
+            $arquivo->arquivo = $nameFile;
+            $arquivo->tamanho = $request->allFiles()[$atributoFiles][$i]->getSize();
+            $arquivo->tipo_mime = $request->allFiles()[$atributoFiles][$i]->getMimeType();
+            $arquivo->nome_original = $request->allFiles()[$atributoFiles][$i]->getClientOriginalName();
+            $arquivo->tipo = Arquivo::TIPO_IMAGEM;
+            if($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "txt" || $extension == "ppt" || $extension == "pptx" || $extension == "odt" || $extension == "xls" || $extension == "xlsx" || $extension == "rar" || $extension == "zip"){
+                $arquivo->tipo = Arquivo::TIPO_DOCUMENTO;
+            }
+            $arquivo[$tabela.'_id'] = $model->id;
+            $arquivo->save();
+            $uploadPath = "uploads/".$tabela."/".$arquivo->id;
+            $request->allFiles()[$atributoFiles][$i]->storeAs($uploadPath, $nameFile);
+            $nameFile = null;
+            unset($arquivo);
+        }
+    }
 }
