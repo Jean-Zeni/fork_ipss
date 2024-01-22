@@ -85,15 +85,19 @@ class Arquivo extends Model
             $arquivo->tipo_mime = $request->allFiles()[$atributoFiles][$i]->getMimeType();
             $arquivo->nome_original = $request->allFiles()[$atributoFiles][$i]->getClientOriginalName();
             $arquivo->tipo = Arquivo::TIPO_IMAGEM;
-            if($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "txt" || $extension == "ppt" || $extension == "pptx" || $extension == "odt" || $extension == "xls" || $extension == "xlsx" || $extension == "rar" || $extension == "zip"){
-                $arquivo->tipo = Arquivo::TIPO_DOCUMENTO;
-            }
+            $arquivo->verificaTipoArquivo($extension);
             $arquivo[$tabela.'_id'] = $model->id;
             $arquivo->save();
             $uploadPath = "uploads/".$tabela."/".$arquivo->id;
             $request->allFiles()[$atributoFiles][$i]->storeAs($uploadPath, $nameFile);
             $nameFile = null;
             unset($arquivo);
+        }
+    }
+
+    public function verificaTipoArquivo($extension){
+        if($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "txt" || $extension == "ppt" || $extension == "pptx" || $extension == "odt" || $extension == "xls" || $extension == "xlsx" || $extension == "rar" || $extension == "zip"){
+            $this->tipo = Arquivo::TIPO_DOCUMENTO;
         }
     }
 }
