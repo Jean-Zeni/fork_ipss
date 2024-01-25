@@ -11,29 +11,29 @@ class Conselho extends Model
 
     protected $fillable = ['nome', 'descricao', 'ativo'];
 
-    public static function rules(){
-        $regras = [
+    public static function rules(): array
+    {
+        return [
             'nome' => 'required|max:256',
             'arquivo' => 'image'
         ];
-
-        return $regras;
     }
 
-    public static function feedback(){
-        $feedback = [
+    public static function feedback(): array
+    {
+        return [
             'required' => 'O campo :attribute deve ser preenchido',
             'arquivo.image' => "Tipo não suportado, envie uma imagem ('jpg, jpeg, png...')"
         ];
-
-        return $feedback;
     }
 
-    public function arquivo(){
+    public function arquivo(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
         return $this->hasOne('App\Models\Arquivo', 'conselho_id');
     }
 
-    public function membros(){
+    public function membros(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany('App\Models\Membro');
     }
 }

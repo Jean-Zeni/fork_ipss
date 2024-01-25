@@ -13,46 +13,44 @@ class Contato extends Model
     const TIPO_CONTATO = 3;
     const TIPO_CONTATO_EVANGELISMO = 4;
 
-    public static $statusList = [
+    public static array $statusList = [
         self::STATUS_ABERTO => 'Aberto',
         self::STATUS_RESPONDIDO => 'Respondido'
     ];
 
-    public static $tipos = [
+    public static array $tipos = [
         self::TIPO_CONTATO => 'Contato',
         self::TIPO_CONTATO_EVANGELISMO => 'Duvida contato'
     ];
 
-    public static function rules(){
-        $regras = [
+    public static function rules(): array
+    {
+        return [
             'nome' => 'required|max:150',
             'email' => 'required|email',
             'telefone' => 'required|max:15',
             'mensagem' => 'required',
         ];
-        
-        return $regras;
     }
 
-    public static function feedback(){
-        $feedback = [
+    public static function feedback(): array
+    {
+        return [
             'required' => 'O campo :attribute deve ser preenchido',
             'nome.max' => 'O campo :attribute não pode ultrapassar 150 caracteres.',
             'telefone.max' => 'O campo :attribute não pode ultrapassar 15 caracteres.',
             'email.email' => 'Digite um email válido.'
         ];
-
-        return $feedback;
     }
 
-    public function getStatusLabel($withTag = true)
+    public function getStatusLabel($withTag = true): string
     {
         $status = (isset(self::$statusList[$this->status]))
             ? self::$statusList[$this->status]
             : 'Não informado';
-        
+
         $class = 'default';
-        
+
         switch ($this->status) {
             case self::STATUS_ABERTO:
                 $class = 'danger';
@@ -61,12 +59,12 @@ class Contato extends Model
                 $class = 'success';
                 break;
         }
-        
+
         $label = '<span class="radius4 fontBranco text-uppercase label-'.$class.'" style="font-size:.8em; letter-spacing:0.5px; padding:6px 12px; white-space:nowrap"><small>'.$status.'</small></span>';
         $html = ($withTag) ? '<span>' : '';
         $html .= $label;
         $html .= ($withTag) ? '</span>' : '';
-        
+
         return $html;
     }
 

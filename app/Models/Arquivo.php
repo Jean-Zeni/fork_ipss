@@ -14,7 +14,8 @@ class Arquivo extends Model
 
     use HasFactory;
 
-    public function foto(){
+    public function foto(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo('App\Models\Foto');
     }
 
@@ -32,7 +33,8 @@ class Arquivo extends Model
         return $nome;
     }
 
-    public function salvarArquivo($request, $model, $tabela, $tipo){
+    public function salvarArquivo($request, $model, $tabela, $tipo): void
+    {
         $name = uniqid(date('HisYmd'));
         $extension = $request->arquivo->extension();
         $nameFile = "{$name}.{$extension}";
@@ -49,7 +51,7 @@ class Arquivo extends Model
             $request->arquivo->storeAs("uploads/".$tabela."/".$model->arquivo->id, $nameFile);
             return;
         }
-        
+
         $this->arquivo = $nameFile;
         $this->tamanho = $request->arquivo->getSize();
         $this->tipo_mime = $request->arquivo->getMimeType();
@@ -61,20 +63,23 @@ class Arquivo extends Model
         $request->arquivo->storeAs("uploads/".$tabela."/".$this->id, $nameFile);
     }
 
-    public function verificaExistenciaArquivo($tabela, $arquivo){
+    public function verificaExistenciaArquivo($tabela, $arquivo): void
+    {
         if(Storage::exists("/uploads/{$tabela}/{$arquivo->id}/{$arquivo->arquivo}")){
             Storage::delete("/uploads/{$tabela}/{$arquivo->id}/{$arquivo->arquivo}");
-        }   
+        }
     }
 
-    public function excluirPastaArquivo($tabela){ 
+    public function excluirPastaArquivo($tabela): void
+    {
         if(Storage::exists("/uploads/{$tabela}/{$this->id}/{$this->arquivo}")){
             unlink(public_path('/storage/uploads/'.$tabela.'/'.$this->id.'/'.$this->arquivo));
             rmdir(public_path('/storage/uploads/'.$tabela.'/'.$this->id));
-        }   
+        }
     }
 
-    public static function salvarArquivos($request, $atributoFiles, $model, $tabela){
+    public static function salvarArquivos($request, $atributoFiles, $model, $tabela): void
+    {
         for($i = 0; $i < count($request->allFiles()[$atributoFiles]); $i++){
             $arquivo = new Arquivo();
             $name = uniqid(date('HisYmd'));
@@ -95,7 +100,8 @@ class Arquivo extends Model
         }
     }
 
-    public function verificaTipoArquivo($extension){
+    public function verificaTipoArquivo($extension): void
+    {
         if($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "txt" || $extension == "ppt" || $extension == "pptx" || $extension == "odt" || $extension == "xls" || $extension == "xlsx" || $extension == "rar" || $extension == "zip"){
             $this->tipo = Arquivo::TIPO_DOCUMENTO;
         }

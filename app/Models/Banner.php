@@ -12,8 +12,9 @@ class Banner extends Model
 
     protected $dates = ['created_at', 'updated_at', 'data_inicio', 'data_fim'];
 
-    public static function rules(){
-        $regras = [
+    public static function rules(): array
+    {
+        return [
             'titulo' => 'required|max:256',
             'data_inicio' => 'required',
             'data_fim' => 'required',
@@ -21,23 +22,21 @@ class Banner extends Model
             'ordem' => 'required',
             'arquivo' => 'image'
         ];
-
-        return $regras;
     }
 
-    public static function feedback(){
-        $feedback = [
+    public static function feedback(): array
+    {
+        return [
             'required' => 'O campo :attribute deve ser preenchido',
             'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
             'link.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
             'arquivo_id.exists' => "O fornecedor informado não existe!",
             'arquivo.image' => "Tipo não suportado, envie uma imagem ('jpg, jpeg, png...')"
         ];
-
-        return $feedback;
     }
-    
-    public function arquivo(){
+
+    public function arquivo(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
         return $this->hasOne('App\Models\Arquivo', 'banner_id');
     }
 }

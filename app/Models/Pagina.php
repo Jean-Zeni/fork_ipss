@@ -11,35 +11,33 @@ class Pagina extends Model
 
     protected $fillable = ['titulo', 'resumo', 'descricao', 'link_youtube', 'ativo'];
 
-    public static function rules(){
-        $regras = [
+    public static function rules(): array
+    {
+        return [
             'titulo' => 'required|max:256',
             'resumo' => 'required|max:512',
             'descricao' => 'required',
             'arquivos.*' => 'mimes:jpg,jpeg,png,gif,bmp,webm,webp,svg,doc,docx,pdf,txt,ppt,pptx,odt,xls,xlsx,rar,zip',
         ];
-
-        return $regras;
     }
 
-    public static function feedback(){
-        $feedback = [
+    public static function feedback(): array
+    {
+        return [
             'required' => 'O campo :attribute deve ser preenchido',
             'titulo.max' => 'O campo :attribute não pode ultrapassar 256 caracteres.',
             'resumo.max' => 'O campo :attribute não pode ultrapassar 512 caracteres.',
             'arquivos.mimes' => 'Arquivo inválido, deve ser de extensões: jpg, jpeg, png, gif, bmp, webm, webp, svg, doc, docx, pdf, txt, ppt, pptx, odt, xls, xlsx, rar, zip'
         ];
-
-        return $feedback;
     }
 
-    public function arquivos(){
+    public function arquivos(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany('App\Models\Arquivo');
     }
 
     public function getImagemCapa()
     {
-
         $arquivo = Arquivo::where('pagina_id', $this->id)->where(
             'tipo' , Arquivo::TIPO_IMAGEM
         )->first();
@@ -54,7 +52,6 @@ class Pagina extends Model
 
     public function getImagems($id)
     {
-
         $arquivos = Arquivo::where('pagina_id', $this->id)->where(
             'tipo' , Arquivo::TIPO_IMAGEM
         )->where('id', '!=', $id)->get();
@@ -68,7 +65,6 @@ class Pagina extends Model
 
     public function getDocumentos()
     {
-
         $arquivos = Arquivo::where('pagina_id', $this->id)->where(
             'tipo' , Arquivo::TIPO_DOCUMENTO
         )->get();

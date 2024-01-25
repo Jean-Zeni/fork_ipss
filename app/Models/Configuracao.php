@@ -12,23 +12,22 @@ class Configuracao extends Model
 
     protected $fillable = ['nome', 'endereco', 'telefone', 'googlemaps', 'rodape', 'instagram', 'twitter', 'facebook', 'whatsapp', 'youtube', 'spotify', 'descricao_contato'];
 
-    public static function rules(){
-        $regras = [
+    public static function rules(): array
+    {
+        return [
             'arquivo' => 'image'
         ];
-
-        return $regras;
     }
 
-    public static function feedback(){
-        $feedback = [
+    public static function feedback(): array
+    {
+        return [
             'arquivo.image' => "Tipo não suportado, envie uma imagem ('jpg, jpeg, png...')"
         ];
-
-        return $feedback;
     }
 
-    public function arquivo(){
+    public function arquivo(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
         return $this->hasOne('App\Models\Arquivo', 'configuracao_id');
     }
 

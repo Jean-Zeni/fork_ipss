@@ -13,19 +13,17 @@ class Evento extends Model
 
     protected $dates = ['created_at', 'updated_at', 'start', 'end'];
 
-    public static function rules(){
-        $regras = [
+    public static function rules(): array
+    {
+        return [
             'title' => 'required|max:256',
         ];
-
-        return $regras;
     }
 
-    public static function feedback(){
-        $feedback = [
+    public static function feedback(): array
+    {
+        return [
             'required' => 'O campo :attribute deve ser preenchido'
         ];
-
-        return $feedback;
     }
 }
