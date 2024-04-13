@@ -34,6 +34,6 @@ class Conselho extends Model
 
     public function membros(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany('App\Models\Membro');
+        return $this->hasMany('App\Models\Membro')->where('ativo', 1);
     }
 }
