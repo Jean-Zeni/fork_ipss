@@ -100,6 +100,7 @@
     <br>
     <div class="row">
         <div class="col-2">
+            <input type="hidden" id="ativo" name="ativo" value="0">
             <input type="checkbox" id="ativo" name="ativo" value="1" @if(isset($membro)){{ $membro->ativo==1?'checked':'' }}@endif>
             <label for="ativo">Ativo</label>
         </div>

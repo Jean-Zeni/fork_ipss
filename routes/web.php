@@ -37,6 +37,8 @@ Route::get('/doutrina', function(){
 
 Route::get('/contato', [\App\Http\Controllers\SiteContatoController::class, 'index'])->name('site.contato');
 
+Route::get('/mapa-rs', [\App\Http\Controllers\SiteMapaRsController::class, 'index'])->name('site.mapa-rs');
+
 Route::get('/contato-evangelismo', [\App\Http\Controllers\SiteContatoController::class, 'evangelismo'])->name('site.contato.evangelismo');
 
 Route::post('/contato/save-contato', [\App\Http\Controllers\SiteContatoController::class, 'SaveContato'])->name('site.save-contato');
@@ -85,6 +87,9 @@ Route::middleware([
 
     //banners
     Route::resource('banner', \App\Http\Controllers\BannerController::class);
+
+    //igrejas
+    Route::resource('igreja', \App\Http\Controllers\IgrejaController::class);
 
     //videos
     Route::resource('video', \App\Http\Controllers\VideoController::class);

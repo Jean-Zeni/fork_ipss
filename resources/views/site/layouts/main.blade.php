@@ -56,11 +56,13 @@ $pastor = Membro::find(1);
 
         <!--Botão whatsapp-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <a href="https://web.whatsapp.com/send?phone=555182153223&text=Olá" target="_blank">
-            <div class="btn-whatsapp pulsaDelay"><i class="fab fa-whatsapp"></i></div>
+        <a href="{{$config->getWhatsappLink()}}" target="_blank">
+            <div class="btn-whatsapp pulsaDelay"><i class="fab fa-whatsapp" id="icon-zap"></i></div>
         </a>
         <!--Botão whatsapp-->
-        @include('site.principal._components._modal_membro' , ['membro' => $pastor])
+        @if ($pastor)
+            @include('site.principal._components._modal_membro' , ['membro' => $pastor])
+        @endif
         @stack('scripts')
     </body>
 </html>

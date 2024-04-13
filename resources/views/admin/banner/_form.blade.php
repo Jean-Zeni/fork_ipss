@@ -75,10 +75,12 @@
     <br>
     <div class="row">
         <div class="col-2">
+            <input type="hidden" id="ativo" name="ativo" value="0">
             <input type="checkbox" id="ativo" name="ativo" value="1" @if(isset($banner)){{ $banner->ativo==1?'checked':'' }}@endif>
             <label for="ativo">Ativo</label>
         </div>
         <div class="col-2">
+            <input type="hidden" id="nova_guia" name="nova_guia" value="0">
             <input type="checkbox" id="nova_guia" name="nova_guia" value="1" @if(isset($banner)){{ $banner->nova_guia==1?'checked':'' }}@endif>
             <label for="nova_guia">Nova Guia</label>
         </div>

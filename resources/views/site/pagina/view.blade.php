@@ -129,3 +129,9 @@ if($pagina->getDocumentos()){
     </div>
     <script src="{{ asset('js/slider.js')}}"></script>
 @endsection
+
+<script type="text/javascript">
+    window.onload = function () { 
+        document.getElementById('icon-zap').style.cssText = 'margin-top:12px;';
+    } 
+</script>

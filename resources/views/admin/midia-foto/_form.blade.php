@@ -68,10 +68,12 @@
     <br>
     <div class="row">
         <div class="col-2">
+            <input type="hidden" id="ativo" name="ativo" value="0">
             <input type="checkbox" id="ativo" name="ativo" value="1" @if(isset($foto)){{ $foto->ativo==1?'checked':'' }}@endif>
             <label for="ativo">Ativo</label>
         </div>
         <div class="col-2">
+            <input type="hidden" id="destaque" name="destaque" value="0">
             <input type="checkbox" id="destaque" name="destaque" value="1" @if(isset($foto)){{ $foto->destaque==1?'checked':'' }}@endif>
             <label for="destaque">Destaque</label>
         </div>

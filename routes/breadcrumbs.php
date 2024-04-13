@@ -91,6 +91,12 @@ Breadcrumbs::for('paginaView', function (BreadcrumbTrail $trail, $pagina) {
     $trail->push($pagina->titulo, route('site.pagina.view', $pagina));
 });
 
+//Home > Noticias
+Breadcrumbs::for('mapa-rs', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Mapa do Rio Grande do Sul', route('site.mapa-rs'));
+});
+
 
 Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
     $trail->parent('site');

@@ -75,3 +75,8 @@
     @endif
 @endsection
 
+<script type="text/javascript">
+    window.onload = function () { 
+        document.getElementById('icon-zap').style.cssText = 'margin-top:12px;';
+    } 
+</script>
