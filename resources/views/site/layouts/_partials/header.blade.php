@@ -25,6 +25,7 @@
                     <a href="/sobre-ipb" class="dropdown-item">História da IPB</a>
                     <a href="/sobre-ipss" class="dropdown-item">Nossa História</a>
                     <a href="/doutrina" class="dropdown-item">Doutrina</a>
+                    <a href="/mapa-rs" class="dropdown-item">IPB no RS</a>
                 </div>
             </div>
             <div class="nav-item dropdown">

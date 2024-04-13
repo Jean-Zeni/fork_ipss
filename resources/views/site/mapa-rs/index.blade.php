@@ -1,6 +1,6 @@
 @extends('site.layouts.main')
 
-@section('titulo', 'Igrejas Prebisterianas do Brasil no RS')
+@section('titulo', 'Igrejas Presbiterianas do Brasil no RS')
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script type="module" src="/js/mapa.js"></script>
@@ -10,7 +10,25 @@
     <div class="container-xxl ">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="mb-5">Igrejas Prebisterianas do Brasil no Rio Grande do Sul</h2>
+                <h2 class="mb-5">Igrejas Presbiterianas do Brasil no Rio Grande do Sul</h2>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center" style="display: flex; justify-content:center;margin-bottom:10px;">
+
+                    <table class="table table-bordered" style="width:300px;">
+                        <thead class="text-center">
+                            <tr>
+                                <th colspan="2"><strong>Legenda</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center"><img src="/images/icone-marcador-igrejas.png" width="28px" alt=""> Igreja</td>
+                                <td class="text-center"><img src="/images/icone-marcador-congregacao.png" width="28px" alt="">Congregação</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="row g-4">
                 <div id="map"></div>

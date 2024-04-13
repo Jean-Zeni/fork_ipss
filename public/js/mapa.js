@@ -17,7 +17,7 @@ async function initMap() {
  
       var img = item.arquivo != null ? '<img src="/storage/uploads/igreja/'+item.arquivo.id+'/'+item.arquivo.nome+'" width="100%" style="max-height:150px;object-fit:contain;margin-top:5px;margin-bottom:10px;">' : '';
       var endereco = item.endereco != null ? '<p>'+item.endereco+'</p>' : '';
-      var site = item.link_site != null ? "<a href='"+item.link_site+"' class='btn btn-primary' style='border-radius:6px;' target='_blank'>Acessar Site</a>" : '';
+      var site = item.link_site != null ? "<a href='"+item.link_site+"' class='btn btn-primary' style='border-radius:6px;' target='_blank'>Informações</a>" : '';
       var icon = (item.congregacao != 1) ? '/images/icone-marcador-igrejas.png' : '/images/icone-marcador-congregacao.png';
 
       const conteudo =
