@@ -87,6 +87,9 @@ $config = Configuracao::getConfig();
                         <div class="ps-4">
                             <a href="/sobre-ipb" class="btn btn-primary py-3 px-5">Conheça a IPB</a>
                         </div>
+                        <div class="ps-4">
+                            <a href="/mapa-rs" class="btn btn-primary py-3 px-5">IPB no RS</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -117,7 +120,7 @@ $config = Configuracao::getConfig();
         </div>
     </div>
 
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!--<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="text-center">
                 <h1 class="mb-0">Reflexões</h1>
@@ -169,7 +172,7 @@ $config = Configuracao::getConfig();
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     @if($noticias)
         <div class="container-xxl py-5">
