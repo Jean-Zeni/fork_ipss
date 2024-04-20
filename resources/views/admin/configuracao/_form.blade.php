@@ -38,7 +38,6 @@
             <div class="col-12">
                 <p><label>Rodapé:</label></p>
                 <textarea class="rodape" name="rodape" placeholder="Rodapé" style="width: 100% !important;">{{ $configuracao->rodape ?? old('rodape') }}</textarea>
-                <script src="https://cdn.tiny.cloud/1/tscpebe2xv4vkktpkkorh3wcc0q4xctf2b7cuihi9z6f4j9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
                 {{ $errors->has('rodape') ? $errors->first('rodape') : '' }}
             </div>
         </div>
@@ -90,7 +89,6 @@
             <div class="col-12">
                 <p><label>Descrição para a página contato:</label></p>
                 <textarea class="descricao_contato" name="descricao_contato" placeholder="Rodapé" style="width: 100% !important;">{{ $configuracao->descricao_contato ?? old('descricao_contato') }}</textarea>
-                <script src="https://cdn.tiny.cloud/1/tscpebe2xv4vkktpkkorh3wcc0q4xctf2b7cuihi9z6f4j9u/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
                 {{ $errors->has('descricao_contato') ? $errors->first('descricao_contato') : '' }}
             </div>
         </div>
@@ -123,29 +121,11 @@
 <script>
     tinymce.init({
         selector:'textarea.rodape',
-        language: 'pt_BR',
-        height: '300px',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
-        mergetags_list: [
-            { value: 'First.Name', title: 'First Name' },
-            { value: 'Email', title: 'Email' },
-        ]
+        language: 'pt_BR'
     });
 
     tinymce.init({
         selector:'textarea.descricao_contato',
-        language: 'pt_BR',
-        height: '300px',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
-        mergetags_list: [
-            { value: 'First.Name', title: 'First Name' },
-            { value: 'Email', title: 'Email' },
-        ]
+        language: 'pt_BR'
     });
 </script>

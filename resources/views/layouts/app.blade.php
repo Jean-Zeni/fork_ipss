@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('site/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <script src = "https://cdn.jsdelivr.net/npm/ flatpickr" > </script> 
+        <script src="https://cdn.tiny.cloud/1/tscpebe2xv4vkktpkkorh3wcc0q4xctf2b7cuihi9z6f4j9u/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
