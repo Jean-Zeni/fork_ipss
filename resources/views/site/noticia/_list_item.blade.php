@@ -20,6 +20,6 @@ strtr(utf8_decode(trim($noticia->titulo)), utf8_decode("áàãâéêíóôõúü
         @if ($noticia->data_publicacao)
             <p>Data de Publicação: {{$noticia->data_publicacao->format('d/m/Y')}}</p>
         @endif
-        <a class="btn-slide mt-2" href="/noticia/{{$noticia->id}}/{{preg_replace('/[ -]+/' , '-' , $titulo_url)}}"><i class="fa fa-arrow-right"></i><span>Ler mais</span></a>
+        <a class="btn-slide mt-4" href="/noticia/{{$noticia->id}}/{{preg_replace('/[ -]+/' , '-' , $titulo_url)}}"><i class="fa fa-arrow-right"></i><span>Ler mais</span></a>
     </div>
 </div>
