@@ -16,6 +16,10 @@ a {
   margin-top: 40px;
 }
 
+.bg-primary {
+  background-color: #015b41 !important;
+}
+
 .label-danger {
   background-color: #d9534f;
 }

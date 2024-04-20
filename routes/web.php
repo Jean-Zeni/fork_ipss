@@ -81,9 +81,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->prefix('/admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\SiteAdminController::class, 'index'])->name('dashboard');
 
     //banners
     Route::resource('banner', \App\Http\Controllers\BannerController::class);
