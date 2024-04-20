@@ -87,10 +87,10 @@ class NoticiaController extends Controller
         $request->validate(Noticia::rules(), Noticia::feedback());
     
         if($request->hasFile('images')){
-            Arquivo::salvarArquivos($request, 'images', $noticia, 'noticia');
+            Arquivo::salvarArquivos($request, 'images', $noticium, 'noticia');
         }
         
-        $noticia->update($request->all());
+        $noticium->update($request->all());
         alert()->success('Concluído','Registro atualizado com sucesso.');
         return redirect()->route('noticia.show', ['noticium' => $noticium->id]);
     }
@@ -103,13 +103,13 @@ class NoticiaController extends Controller
      */
     public function destroy(Noticia $noticium)
     {
-        if($noticia->arquivos){
-            foreach($noticia->arquivos as $arquivo){
+        if($noticium->arquivos){
+            foreach($noticium->arquivos as $arquivo){
                 $arquivo->excluirPastaArquivo('noticia');
                 $arquivo->delete();
             }
         }
-        $noticia->delete();
+        $noticium->delete();
 
         alert()->success('Concluído','Registro removido com sucesso.');
         return redirect()->route('noticia.index');
