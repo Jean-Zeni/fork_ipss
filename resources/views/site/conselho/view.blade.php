@@ -32,7 +32,7 @@
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="mb-5">Membros</h1>
             </div>
-            <div class="row g-4">
+            <div class="row g-4" style="justify-content: center;">
                 @if ($conselho->membros)
                     @foreach ($conselho->membros as $membro)
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
