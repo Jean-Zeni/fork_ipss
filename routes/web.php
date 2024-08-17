@@ -59,6 +59,10 @@ Route::get('/foto/{id}/{nome?}', [\App\Http\Controllers\SiteFotoController::clas
 
 Route::get('/ipss/{id}/{nome?}', [\App\Http\Controllers\SitePaginaController::class, 'view'])->name('site.pagina.view');
 
+Route::get('/reflexao', [\App\Http\Controllers\SiteReflexaoController::class, 'index'])->name('site.reflexao');
+
+Route::get('/reflexao/{id}/{nome?}', [\App\Http\Controllers\SiteReflexaoController::class, 'view'])->name('site.reflexao.view');
+
 Route::get('/agenda', [\App\Http\Controllers\SiteEventoController::class, 'index'])->name('site.agenda');
 
 Route::get('/conselho/{id}', [\App\Http\Controllers\SiteConselhoController::class, 'view'])->name('site.conselho.view');
@@ -115,6 +119,9 @@ Route::middleware([
 
     //paginas
     Route::resource('pagina', \App\Http\Controllers\PaginaController::class);
+
+    //reflexoes
+    Route::resource('reflexao', \App\Http\Controllers\ReflexaoController::class);
 
     //configuração
     Route::get('/configuracao/edit/{configuracao}', [\App\Http\Controllers\ConfiguracaoController::class, 'edit'])->name('admin.configuracao.edit');

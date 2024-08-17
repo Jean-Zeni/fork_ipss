@@ -85,6 +85,18 @@ Breadcrumbs::for('noticiaView', function (BreadcrumbTrail $trail, $noticia) {
     $trail->push($noticia->titulo, route('site.noticia.view', $noticia));
 });
 
+//Home > Reflexões
+Breadcrumbs::for('reflexao', function (BreadcrumbTrail $trail) {
+    $trail->parent('site');
+    $trail->push('Reflexões', route('site.reflexao'));
+});
+
+// Home > Reflexao > [reflexao]
+Breadcrumbs::for('reflexaoView', function (BreadcrumbTrail $trail, $reflexao) {
+    $trail->parent('reflexao');
+    $trail->push('Ler Mais', route('site.reflexao.view', $reflexao));
+});
+
 // Home > Pagina > [Pagina]
 Breadcrumbs::for('paginaView', function (BreadcrumbTrail $trail, $pagina) {
     $trail->parent('site');

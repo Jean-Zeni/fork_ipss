@@ -41,6 +41,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Conteúdo</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="/noticia" class="dropdown-item">Notícias</a>
+                    <a href="/reflexao" class="dropdown-item">Reflexões</a>
                     <a href="/foto" class="dropdown-item">Fotos</a>
                     <a href="/video" class="dropdown-item">Vídeos</a>
                 </div>

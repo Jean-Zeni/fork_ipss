@@ -8,6 +8,7 @@ use App\Models\Video;
 use App\Models\Foto;
 use App\Models\Noticia;
 use App\Models\Membro;
+use App\Models\Reflexao;
 
 class SiteController extends Controller
 {
@@ -19,6 +20,7 @@ class SiteController extends Controller
         $video = Video::orderBy('data_publicacao','desc')->where('destaque', 1)->get()->take(1)->first();
         $devocional = Video::orderBy('data_publicacao','desc')->where('devocional', 1)->get()->take(1)->first();
         $membros = Membro::orderBy('ordem', 'asc')->where('ativo', 1)->get()->take(4);
+        $reflexoes = Reflexao::orderBy('id','desc')->where('ativo', 1)->get()->take(8);
        
         return view('site.principal.index', [
             'banners'=>$banners,
@@ -27,6 +29,7 @@ class SiteController extends Controller
             'imagens' => $imagens,
             'noticias' => $noticias,
             'devocional' => $devocional,
+            'reflexoes' => $reflexoes,
             'membros' => $membros
         ]);
     }

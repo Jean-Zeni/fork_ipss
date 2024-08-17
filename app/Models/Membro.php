@@ -43,4 +43,9 @@ class Membro extends Model
     {
         return $this->belongsTo('App\Models\Conselho');
     }
+
+    public function reflexao(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne('App\Models\Reflexao');
+    }
 }

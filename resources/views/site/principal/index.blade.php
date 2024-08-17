@@ -120,59 +120,43 @@ $config = Configuracao::getConfig();
         </div>
     </div>
 
-    <!--<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="text-center">
-                <h1 class="mb-0">Reflexões</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item p-4 my-5">
-                    <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
-                    <div class="d-flex align-items-end mb-4">
-                        <img class="img-fluid flex-shrink-0" src="images/cleber.jpg" style="width: 80px; height: 80px;">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Cleber</h5>
-                            <p class="m-0">Tesoureiro</p>
-                        </div>
-                    </div>
-                    <p class="mb-0">“Meus irmãos, considerem motivo de grande alegria o fato de passarem por diversas provações.” (Tiago 1.2)</p>
+    @if($reflexoes && count($reflexoes) >= 3) 
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="text-center">
+                    <h1 class="mb-0">Reflexões</h1>
                 </div>
-                <div class="testimonial-item p-4 my-5">
-                    <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
-                    <div class="d-flex align-items-end mb-4">
-                        <img class="img-fluid flex-shrink-0" src="images/cristiano.jpg" style="width: 80px; height: 80px;">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Cristiano</h5>
-                            <p class="m-0">Vice-Presidente</p>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    @foreach($reflexoes as $reflexao) 
+                        <div class="testimonial-item p-4 my-5">
+                            <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+                            <div class="d-flex align-items-end mb-4">
+                                <!--<img class="img-fluid flex-shrink-0" src="images/cleber.jpg" style="width: 80px; height: 80px;">-->
+                                <div>
+                                    <h5 class="mb-1">{{$reflexao->nome}}</h5>
+                                    <p class="m-0">{{$reflexao->membro->nome}}</p>
+                                </div>
+                            </div>
+                            @if($reflexao->resumo) 
+                                <p class="mb-0">{{$reflexao->resumo}}</p>
+                            @endif
                         </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item p-4 my-5">
-                    <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
-                    <div class="d-flex align-items-end mb-4">
-                        <img class="img-fluid flex-shrink-0" src="images/pastor.jpg" style="width: 80px; height: 80px;">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Éverton</h5>
-                            <p class="m-0">Pastor</p>
+                    @endforeach
+                    <!--<div class="testimonial-item p-4 my-5">
+                        <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
+                        <div class="d-flex align-items-end mb-4">
+                            <img class="img-fluid flex-shrink-0" src="images/pastor.jpg" style="width: 80px; height: 80px;">
+                            <div class="ms-4">
+                                <h5 class="mb-1">Éverton</h5>
+                                <p class="m-0">Pastor</p>
+                            </div>
                         </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-                <div class="testimonial-item p-4 my-5">
-                    <i class="fa fa-quote-right fa-3x text-light position-absolute top-0 end-0 mt-n3 me-4"></i>
-                    <div class="d-flex align-items-end mb-4">
-                        <img class="img-fluid flex-shrink-0" src="images/pastor.jpg" style="width: 80px; height: 80px;">
-                        <div class="ms-4">
-                            <h5 class="mb-1">Éverton</h5>
-                            <p class="m-0">Pastor</p>
-                        </div>
-                    </div>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>-->
                 </div>
             </div>
         </div>
-    </div>-->
+    @endif
 
     @if($noticias)
         <div class="container-xxl py-5">

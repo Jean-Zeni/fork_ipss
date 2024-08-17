@@ -24,6 +24,9 @@
                     <x-nav-link href="{{ route('banner.index') }}" :active="request()->routeIs('admin.banner')">
                         {{ __('Banners') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('reflexao.index') }}" :active="request()->routeIs('admin.reflexao')">
+                        {{ __('Reflexões') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('igreja.index') }}" :active="request()->routeIs('admin.igreja')">
                         {{ __('Igrejas') }}
                     </x-nav-link>
